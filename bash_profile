@@ -1,17 +1,3 @@
-#cho 
-#echo -e '\e[0;33m            HI THERE !!\e[0m'
-#printf '\e[0;34m            HI THERE !!\e[0m \n'
-#echo '            HI THERE !!'
-#echo " \   ^__^"
-#echo "  \  (oo)\_______"
-#echo "     (__)\       )\/\ "
-#echo "         ||----w |"
-#echo "         ||     ||"
-#echo
-#echo 
-#printf '\e[0;31------------------------\e[0m'
-
-
 #SOME ALIASES BY ET
 alias ls='ls -G'
 alias ll='ls -ahlF'
