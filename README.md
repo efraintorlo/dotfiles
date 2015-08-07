@@ -1,6 +1,7 @@
 # dotfiles
+
 My Personal dot configuration files
-===================================
+
 To clone this file use:
 -----------------------
 ~~~~
