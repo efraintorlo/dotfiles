@@ -94,6 +94,9 @@ Plugin 'vim-scripts/AutoAlign'
 Plugin 'vim-scripts/Align' 
 Plugin 'vim-scripts/Gundo' 
 Plugin 'junegunn/vim-easy-align'
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -332,3 +335,14 @@ inoremap <leader>j <Esc>:m .+1<CR>==gi
 inoremap <leader>k <Esc>:m .-2<CR>==gi
 vnoremap <leader>j :m '>+1<CR>gv=gv
 vnoremap <leader>k :m '<-2<CR>gv=gv
+
+"--Markdown to HTML
+nmap <leader>md :%!/usr/local/bin/markdown --html4tags <cr>
+
+"---Vim Markdown -------
+"
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_no_default_key_mappings=1
+let g:vim_markdown_math=1
+let g:vim_markdown_frontmatter=1
+
