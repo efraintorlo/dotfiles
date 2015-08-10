@@ -76,4 +76,4 @@ source $ZSH/oh-my-zsh.sh
 alias cl="clear"
 alias lt="ls -t"
 
-
+alias ssh=~/dotfiles/ssh-host-color.sh
