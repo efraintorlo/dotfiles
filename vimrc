@@ -31,7 +31,17 @@ hi NonText ctermfg=7 guifg=gray
 map <leader>v :set paste!<cr>
 
 " edit ~/.vimrc
-map <leader>ev :e! ~/.vimrc<cr>
+"map <leader>ev :e! ~/.vimrc<cr>
+map <leader>ev :e! ~/dotfiles/vimrc<cr>
+
+" edit ~/.tmux.config
+"map <leader>et :e! ~/.tmux.config<cr>
+map <leader>et :e! ~/dotfiles/tmux.config<cr>
+
+" edit ~/.zshrc
+"map <leader>ez :e! ~/.zshrc<cr>
+map <leader>ez :e! ~/dotfiles/zshrc<cr>
+
 
 " Send more characters for redraws
  set ttyfast
@@ -97,6 +107,8 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
