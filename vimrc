@@ -384,9 +384,9 @@ let g:vim_markdown_frontmatter=1
       "\'c'    : [ '%d' ]}
 let g:promptline_preset = {
         \'a'    : [ promptline#slices#user() ],
-        \'b'    : [ promptline#slices#cwd({'dir_lim':3}) ],
+        \'b'    : [ promptline#slices#cwd({'dir_lim':2}) ],
         \'c'    : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
-        \'warn' : [ promptline#slices#last_exit_code(), promptline#slices#battery({'threshold':25}) ],
+        \'warn' : [ promptline#slices#last_exit_code(), promptline#slices#battery() ],
         \'z'    : [ '%T' ]}
         "\'z'    : [ promptline#slices#host({'only_if_ssh':1})]}
         "\'z'    : [ promptline#slices#host()]}
