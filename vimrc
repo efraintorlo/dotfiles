@@ -1,8 +1,20 @@
-"====================
+""====================
 "  Defining: <leader>
 let mapleader = "," 
 let maplocalleader = "," 
 "====================
+"Habit breaking, habit making
+"this disables the arrowkeys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+"====================
+"Saving !
+map <Esc><Esc> :w<CR> :echom '...file saved'<CR>
+nmap <c-s> :w<CR> 
+vmap <c-s> <Esc><c-s>gv 
+imap <c-s> <Esc><c-s> 
 "setlocal spell
 " activate spell-checking alternatives
 nmap .s :set invspell spelllang=en<cr>
@@ -109,6 +121,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Bundle 'edkolev/promptline.vim'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -358,3 +371,23 @@ let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_math=1
 let g:vim_markdown_frontmatter=1
 
+"---- promptline -----
+"https://github.com/edkolev/promptline.vim
+"let g:promptline_preset
+"let g:promptline_preset = {
+      "\'a'    : [ '\h' ],
+      "\'b'    : [ '\u' ],
+      "\'c'    : [ '\W' ]}
+"let g:promptline_preset = {
+      "\'a'    : [ '%m' ],
+      "\'b'    : [ '%n' ],
+      "\'c'    : [ '%d' ]}
+let g:promptline_preset = {
+        \'a'    : [ promptline#slices#user() ],
+        \'b'    : [ promptline#slices#cwd({'dir_lim':3}) ],
+        \'c'    : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
+        \'warn' : [ promptline#slices#last_exit_code(), promptline#slices#battery({'threshold':25}) ],
+        \'z'    : [ '%T' ]}
+        "\'z'    : [ promptline#slices#host({'only_if_ssh':1})]}
+        "\'z'    : [ promptline#slices#host()]}
+        "\'z'    : [ '$(hostname)']}

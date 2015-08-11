@@ -22,7 +22,8 @@ EOF
 }
 
 if [[ "$@" =~ fisica ]]; then
-  set_term_bgcolor 40 0 0
+  #set_term_bgcolor 40 0 0
+  set_term_bgcolor 0 43 54
   #set_term_bgcolor 253 246 227
 elif [[ "$@" =~ ifm ]]; then
   #set_term_bgcolor 160 160 160
