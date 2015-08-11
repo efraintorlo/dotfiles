@@ -386,8 +386,9 @@ let g:promptline_preset = {
         \'a'    : [ promptline#slices#user() ],
         \'b'    : [ promptline#slices#cwd({'dir_lim':2}) ],
         \'c'    : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
-        \'warn' : [ promptline#slices#last_exit_code(), promptline#slices#battery() ],
+        \'warn' : [ promptline#slices#last_exit_code() ],
         \'z'    : [ '%T' ]}
+        "\'warn' : [ promptline#slices#last_exit_code(), promptline#slices#battery() ],
         "\'z'    : [ promptline#slices#host({'only_if_ssh':1})]}
         "\'z'    : [ promptline#slices#host()]}
         "\'z'    : [ '$(hostname)']}
