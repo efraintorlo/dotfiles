@@ -23,7 +23,9 @@ set clipboard=unnamed
 set backspace=2 " make backspace work like most other apps
 set encoding=utf-8
 set nu
-set relativenumber
+if exists('+relativenumber')
+    set relativenumber
+endif
 colorscheme slate
 
 set cursorline 
@@ -122,6 +124,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Bundle 'edkolev/promptline.vim'
+Bundle 'tpope/vim-speeddating'
+Bundle 'vim-scripts/timestamp.vim'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
