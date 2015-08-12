@@ -23,7 +23,8 @@ EOF
 
 if [[ "$@" =~ fisica ]]; then
   #set_term_bgcolor 40 0 0
-  set_term_bgcolor 0 43 54
+  #set_term_bgcolor 0 43 54
+  set_term_bgcolor 0 0 0
   #set_term_bgcolor 253 246 227
 elif [[ "$@" =~ ifm ]]; then
   #set_term_bgcolor 160 160 160
@@ -39,7 +40,7 @@ elif [[ "$@" =~ git ]]; then
 fi
 
 #trap "set_term_bgcolor 0 0 0" EXIT  #black
-trap "set_term_bgcolor 0 43 54" EXIT # Solarized base03  RGB= 0 43 5
+trap "set_term_bgcolor 0 43 54" EXIT # Solarized base03  RGB= 0 43 54
 #trap "set_term_bgcolor 0 54 66" EXIT # Solarized base02  RGB= 7 54 66
 #trap "set_term_bgcolor 253 246 227" EXIT # Solarized base02  RGB= 253 246 227
 
