@@ -121,8 +121,10 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
+if version > 702
+    Plugin 'vim-pandoc/vim-pandoc'
+    Plugin 'vim-pandoc/vim-pandoc-syntax'
+endif
 Bundle 'edkolev/promptline.vim'
 Bundle 'tpope/vim-speeddating'
 Bundle 'vim-scripts/timestamp.vim'
