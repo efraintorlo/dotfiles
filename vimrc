@@ -128,6 +128,8 @@ endif
 Bundle 'edkolev/promptline.vim'
 Bundle 'tpope/vim-speeddating'
 Bundle 'vim-scripts/timestamp.vim'
+Plugin 'irrationalistic/vim-tasks'
+Plugin 'xolox/vim-notes'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -398,3 +400,10 @@ let g:promptline_preset = {
         "\'z'    : [ promptline#slices#host({'only_if_ssh':1})]}
         "\'z'    : [ promptline#slices#host()]}
         "\'z'    : [ '$(hostname)']}
+
+
+
+"---- Notes vim -----
+"let g:notes_directories = ['~/Documents/Notes_vim', '~/Dropbox/Public/Notes_vim']
+let g:notes_directories = ['~/Dropbox/Public/Notes_vim']
+
