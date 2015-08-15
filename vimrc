@@ -130,6 +130,7 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'vim-scripts/timestamp.vim'
 Plugin 'irrationalistic/vim-tasks'
 Plugin 'xolox/vim-notes'
+"Plugin 'xieyu/pyclewn'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -144,7 +145,7 @@ filetype plugin indent on    " required
 "----  NEERDTree configs ----
 "
 let g:NERDTreeDirArrows=0
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -164,8 +165,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "FORTRAN
-"let g:syntastic_fortran_compiler = 'gfortran'
-let g:syntastic_fortran_compiler = 'ifort'
+let g:syntastic_fortran_compiler = 'gfortran'
+"let g:syntastic_fortran_compiler = 'ifort'
 let g:syntastic_fortran_remove_include_errors = 0
 "let g:syntastic_fortran_compiler_options=
 "let g:syntastic_fortran_include_dirs = ['../Release']
@@ -221,7 +222,7 @@ let fortran_have_tabs = 1
 let fortran_fold_conditionals=1
 """"""  CTAGS """"""""
 let g:tagbar_ctags_bin='/Users/efrain/Programs/ctags/bin/ctags'  " Proper Ctags locations
-let g:tagbar_width=35                          " Default is 40, seems too wide
+let g:tagbar_width= 40                          " Default is 40, seems too wide
 "noremap <silent> <Leader>y :TagbarToggle       " Display panel with y (or ,y)
 noremap <silent> <Leader>b :TagbarToggle<CR>       " Display panel with b (or ,b)
 
@@ -392,7 +393,7 @@ let g:vim_markdown_frontmatter=1
       "\'c'    : [ '%d' ]}
 let g:promptline_preset = {
         \'a'    : [ promptline#slices#user() ],
-        \'b'    : [ promptline#slices#cwd({'dir_lim':2}) ],
+        \'b'    : [ promptline#slices#cwd({ 'dir_limit': 4 }) ],
         \'c'    : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
         \'warn' : [ promptline#slices#last_exit_code() ],
         \'z'    : [ '%T' ]}
