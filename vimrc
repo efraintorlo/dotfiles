@@ -15,6 +15,12 @@ map <Esc><Esc> :w<CR> :echom '...file saved'<CR>
 nmap <c-s> :w<CR> 
 vmap <c-s> <Esc><c-s>gv 
 imap <c-s> <Esc><c-s> 
+
+"Switch between buffers
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr> 
+
 "setlocal spell
 " activate spell-checking alternatives
 nmap .s :set invspell spelllang=en<cr>
@@ -131,6 +137,7 @@ Bundle 'vim-scripts/timestamp.vim'
 Plugin 'irrationalistic/vim-tasks'
 Plugin 'xolox/vim-notes'
 "Plugin 'xieyu/pyclewn'
+Plugin 'dhruvasagar/vim-table-mode'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -167,7 +174,7 @@ let g:syntastic_check_on_wq = 0
 "FORTRAN
 let g:syntastic_fortran_compiler = 'gfortran'
 "let g:syntastic_fortran_compiler = 'ifort'
-let g:syntastic_fortran_remove_include_errors = 0
+let g:syntastic_fortran_remove_include_errors = 1 
 "let g:syntastic_fortran_compiler_options=
 "let g:syntastic_fortran_include_dirs = ['../Release']
 let g:syntastic_fortran_config_file = '.my_custom_include_file_for_syntastic'
@@ -268,12 +275,12 @@ let g:indent_guides_guide_size = 2
 " airline options
 "let g:airline_section_b = '%{getcwd()}'
 "let g:airline_section_c = '%t'
-"set laststatus=2
+set laststatus=2
 let g:airline_powerline_fonts=1
 "let g:airline_left_sep=''
 "let g:airline_right_sep=''
 "let g:airline_theme='base16'
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 "--- 
 " toggle Limelight
@@ -330,19 +337,20 @@ nmap <leader>w :Goyo<cr>
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'y'    : ['%R', '%a', '%Y'],
-      \'z'    : '#H'}    
+      \'x'    : ['#{battery_icon}'],
+      \'y'    : ['%R', '%a', '%d-%h-%Y'],
+      \'z'    : '#h'}    
 "" configure which stock theme should be used by |:Tmuxline| >
 "let g:tmuxline_preset = 'nightly_fox'
 
 "" fine-tune the separators >
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_separators = {
-      \ 'left' : '',
-      \ 'left_alt': '|',
-      \ 'right' : '',
-      \ 'right_alt' : '/',
-      \ 'space' : ' '}
+let g:tmuxline_powerline_separators = 1
+"let g:tmuxline_separators = {
+      "\ 'left' : '',
+      "\ 'left_alt': ':',
+      "\ 'right' : '',
+      "\ 'right_alt' : '/',
+      "\ 'space' : ' '}
 
 "--- GUNDO ----
 nnoremap <F5> :GundoToggle<CR>
