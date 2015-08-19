@@ -337,7 +337,7 @@ nmap <leader>w :Goyo<cr>
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#{battery_icon}'],
+      \'x'    : ['Batt:#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}    
 "" configure which stock theme should be used by |:Tmuxline| >
