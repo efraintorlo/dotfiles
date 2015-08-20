@@ -151,7 +151,15 @@ filetype plugin indent on    " required
 
 "----  NEERDTree configs ----
 "
-let g:NERDTreeDirArrows=0
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    let g:NERDTreeDirArrows=0
+  endif
+endif
+"if-shell 'test "$(uname)" = "Darwin"' 'let g:NERDTreeArrows=0'
+"let g:NERDTreeDirArrows=0
+
 "autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
 map <C-n> :NERDTreeToggle<CR>
