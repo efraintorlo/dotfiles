@@ -1,3 +1,10 @@
+" Snippets variables
+let g:snips_author='elchinot7'
+let g:author='elchinot7 '
+let g:snips_email='efraazu@gmail.com'
+let g:email='efraazul@gmail.com'
+let g:snips_github='https://github.com/elchinot7'
+let g:github='https://github.com/elchinot7'
 ""====================
 "  Defining: <leader>
 let mapleader = "," 
