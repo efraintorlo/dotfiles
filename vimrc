@@ -7,8 +7,8 @@ let g:snips_github='https://github.com/elchinot7'
 let g:github='https://github.com/elchinot7'
 ""====================
 "  Defining: <leader>
-let mapleader = "," 
-let maplocalleader = "," 
+let mapleader = ","
+let maplocalleader = ","
 "====================
 "Habit breaking, habit making
 "this disables the arrowkeys
@@ -19,14 +19,14 @@ noremap <Right> <NOP>
 "====================
 "Saving !
 map <Esc><Esc> :w<CR> :echom '...file saved'<CR>
-nmap <c-s> :w<CR> 
-vmap <c-s> <Esc><c-s>gv 
-imap <c-s> <Esc><c-s> 
+nmap <c-s> :w<CR>
+vmap <c-s> <Esc><c-s>gv
+imap <c-s> <Esc><c-s>
 
 "Switch between buffers
 map gn :bn<cr>
 map gp :bp<cr>
-map gd :bd<cr> 
+map gd :bd<cr>
 
 "setlocal spell
 " activate spell-checking alternatives
@@ -41,7 +41,7 @@ if exists('+relativenumber')
 endif
 colorscheme slate
 
-set cursorline 
+set cursorline
 " toggle cursor line
 nnoremap <leader>i :set cursorline!<cr>
 
@@ -70,6 +70,25 @@ map <leader>et :e! ~/dotfiles/tmux.config<cr>
 map <leader>ez :e! ~/dotfiles/zshrc<cr>
 
 
+
+"--------------------------------------------------
+"Trailing Whitespace
+"---------------------------------------------------
+"http://www.bestofvim.com/tip/trailing-whitespace/
+match ErrorMsg '\s\+$'
+"Delete it
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+"Kill it
+" Removes trailing spaces
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>" Removes trailing spaces
+"---------------------------------------------------
+
+
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 " Send more characters for redraws
  set ttyfast
 " Enable mouse use in all modes
@@ -127,9 +146,9 @@ Plugin 'gi1242/vim-tex-autoclose'
 "abolish.vim
 "commentary.vim
 "vim-easyclip
-Plugin 'vim-scripts/AutoAlign' 
-Plugin 'vim-scripts/Align' 
-Plugin 'vim-scripts/Gundo' 
+Plugin 'vim-scripts/AutoAlign'
+Plugin 'vim-scripts/Align'
+Plugin 'vim-scripts/Gundo'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
@@ -145,6 +164,7 @@ Plugin 'irrationalistic/vim-tasks'
 Plugin 'xolox/vim-notes'
 "Plugin 'xieyu/pyclewn'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'jvirtanen/vim-octave'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -186,10 +206,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" HTML
+
+"let g:syntastic_quiet_messages = { "level": "warnings" }
 "FORTRAN
 let g:syntastic_fortran_compiler = 'gfortran'
 "let g:syntastic_fortran_compiler = 'ifort'
-let g:syntastic_fortran_remove_include_errors = 1 
+let g:syntastic_fortran_remove_include_errors = 1
 "let g:syntastic_fortran_compiler_options=
 "let g:syntastic_fortran_include_dirs = ['../Release']
 let g:syntastic_fortran_config_file = '.my_custom_include_file_for_syntastic'
@@ -198,18 +221,22 @@ let g:syntastic_fortran_config_file = '.my_custom_include_file_for_syntastic'
 let g:syntastic_cpp_compiler = 'gcc'
 let g:syntastic_cpp_remove_include_errors = 0
 let g:syntastic_cpp_config_file = '.my_custom_include_file_for_syntastic'
-
+"MATLAB
+"let g:syntastic_matlab_
 "PYTHON
 let g:syntastic_python_checkers = ['flake8']
 "LATEX
- 
+
 "------latex --------
 "let g:syntastic_tex_checkers = ['chktex']
+"let g:syntastic_tex_ckktex_args='--ignore=W35,W6,W8'
+"let g:syntastic_tex_ckktex_args='-n35'
 let g:syntastic_tex_checkers = ['']
 let g:LatexBox_quickfix = 3
 let g:LatexBox_show_warnings = 0
-let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
-let g:LatexBox_latexmk_async = 0
+"let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
+let g:LatexBox_latexmk_options = "-pdflatex='-pdflatex --shell-escape --synctex=1 --f \%O \%S'"
+let g:LatexBox_latexmk_async = 1
 "let g:LatexBox_viewer = 'mupdf-x11'
 let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
 "let g:Tex_DefaultTargetFormat = 'pdf'
@@ -217,7 +244,9 @@ let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
 "this Maps does not work
 "map <leader>r :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<CR>
 "map <leader>r :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline %<C-r>=line('.')<CR> %<CR>
-let g:LatexBox_Folding = 0
+let g:LatexBox_fold_automatic = 0
+let g:LatexBox_Folding = 1
+let g:LatexBox_fold_toc = 1
 
 imap <buffer> [[     \begin{
 
@@ -225,7 +254,7 @@ imap <buffer> ]]     <Plug>LatexCloseCurEnv
 
 imap <buffer> [[     \begin{
 imap <buffer> ]]     <Plug>LatexCloseCurEnv
-"nmap <buffer> <F5>   <Plug>LatexChangeEnv " I'm using F5 for GUNDO 
+"nmap <buffer> <F5>   <Plug>LatexChangeEnv " I'm using F5 for GUNDO
 "vmap <buffer> <F7>   <Plug>LatexWrapSelection
 "vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
 imap <buffer> ((     \eqref{
@@ -236,7 +265,19 @@ imap <buffer> ((     \eqref{
 "imap <silent> <buffer> ¶ <C-R>=LatexBox_JumpToNextBraces(0)<CR>
 "imap <silent> <buffer> § <C-R>=LatexBox_JumpToNextBraces(1)<CR>
 
-
+"----- SNIP -----
+ "Octave syntax
+ augroup filetypedetect
+  au! BufRead,BufNewFile *.m,*.oct set filetype=octave
+ augroup END
+"Use keywords from Octave syntax language file for autocomplete 
+if has("autocmd") && exists("+omnifunc") 
+   autocmd Filetype octave 
+   \    if &omnifunc == "" | 
+   \    setlocal omnifunc=syntaxcomplete#Complete | 
+   \    endif 
+endif 
+"----- SNIP -----
 
 "-----Fortran.vim -----
 let fortran_free_source = 1
@@ -268,7 +309,7 @@ syntax enable
 " ---PowerLine ----- DEPRECATED !!
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline
 let g:Powerline_symbols = 'fancy'
-"set fillchars+=stl:\ ,stlnc:\   
+"set fillchars+=stl:\ ,stlnc:\
 set encoding=utf-8
 set t_Co=256
 "set fillchars+=stl:\ ,stlnc:\
@@ -278,7 +319,7 @@ set termencoding=utf-8
 " --- CtrlP ----
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.mod,*.o 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.mod,*.o
 "----indent-guides----
 
 set ts=4 sw=4 et
@@ -297,7 +338,7 @@ let g:airline_powerline_fonts=1
 "let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
 
-"--- 
+"---
 " toggle Limelight
 nmap <leader>f :Limelight!!<cr>
 "nmap <leader>f :Limelight!<cr>
@@ -346,15 +387,15 @@ nmap <leader>w :Goyo<cr>
       "\'x'    : '#(date)',
       "\'y'    : ['%R', '%a', '%Y'],
       "\'z'    : '#H'}
-
+let status_itunes='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
  let g:tmuxline_preset = {
       \'a'    : '#S',
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#{battery_icon}#{battery_percentage}'],
+      \'x'    : ['#{status_itunes}','#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
-      \'z'    : '#h'}    
+      \'z'    : '#h'}
 "" configure which stock theme should be used by |:Tmuxline| >
 "let g:tmuxline_preset = 'nightly_fox'
 
