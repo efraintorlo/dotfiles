@@ -153,7 +153,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-if version > 702
+if version > 703
     Plugin 'vim-pandoc/vim-pandoc'
     Plugin 'vim-pandoc/vim-pandoc-syntax'
 endif
@@ -165,6 +165,9 @@ Plugin 'xolox/vim-notes'
 "Plugin 'xieyu/pyclewn'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'jvirtanen/vim-octave'
+Plugin 'reedes/vim-wordy'
+Plugin 'reedes/vim-pencil'
+Plugin 'reedes/vim-colors-pencil'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
