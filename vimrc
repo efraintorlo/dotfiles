@@ -473,5 +473,5 @@ let g:promptline_preset = {
 
 "---- Notes vim -----
 "let g:notes_directories = ['~/Documents/Notes_vim', '~/Dropbox/Public/Notes_vim']
-let g:notes_directories = ['~/Dropbox/Public/Notes_vim']
+"let g:notes_directories = ['~/Dropbox/Public/Notes_vim']
 
