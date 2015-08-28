@@ -238,7 +238,7 @@ let g:syntastic_tex_checkers = ['']
 let g:LatexBox_quickfix = 3
 let g:LatexBox_show_warnings = 0
 "let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
-let g:LatexBox_latexmk_options = "-pdflatex='-pdflatex --shell-escape --synctex=1 --f \%O \%S'"
+let g:LatexBox_latexmk_options = "-pdflatex='pdflatex --shell-escape --synctex=1 --f \%O \%S'"
 let g:LatexBox_latexmk_async = 1
 "let g:LatexBox_viewer = 'mupdf-x11'
 let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
