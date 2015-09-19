@@ -168,6 +168,7 @@ Plugin 'jvirtanen/vim-octave'
 Plugin 'reedes/vim-wordy'
 Plugin 'reedes/vim-pencil'
 Plugin 'reedes/vim-colors-pencil'
+Plugin 'ervandew/supertab'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -273,13 +274,13 @@ imap <buffer> ((     \eqref{
  augroup filetypedetect
   au! BufRead,BufNewFile *.m,*.oct set filetype=octave
  augroup END
-"Use keywords from Octave syntax language file for autocomplete 
-if has("autocmd") && exists("+omnifunc") 
-   autocmd Filetype octave 
-   \    if &omnifunc == "" | 
-   \    setlocal omnifunc=syntaxcomplete#Complete | 
-   \    endif 
-endif 
+"Use keywords from Octave syntax language file for autocomplete
+if has("autocmd") && exists("+omnifunc")
+   autocmd Filetype octave
+   \    if &omnifunc == "" |
+   \    setlocal omnifunc=syntaxcomplete#Complete |
+   \    endif
+endif
 "----- SNIP -----
 
 "-----Fortran.vim -----
@@ -476,4 +477,8 @@ let g:promptline_preset = {
 "---- Notes vim -----
 "let g:notes_directories = ['~/Documents/Notes_vim', '~/Dropbox/Public/Notes_vim']
 "let g:notes_directories = ['~/Dropbox/Public/Notes_vim']
+
+"--- SuperTab---
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+"let g:SuperTabDefaultCompletionType = "context"
 
