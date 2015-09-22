@@ -1,7 +1,7 @@
 
 function chpwd {
-  if [[ -e .readme ]]; then
+  if [[ -e .info ]]; then
     echo ">>>"
-    cat .readme
+    cat .info
     echo ">>>"
 fi }
