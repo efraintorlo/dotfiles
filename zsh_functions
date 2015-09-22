@@ -1,0 +1,7 @@
+
+function chpwd {
+  if [[ -e .readme ]]; then
+    echo ">>>"
+    cat .readme
+    echo ">>>"
+fi }

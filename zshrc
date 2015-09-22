@@ -76,5 +76,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cl="clear"
 alias lt="ls -t"
-
+alias tree="tree -C"
 alias ssh=~/dotfiles/ssh-host-color.sh
