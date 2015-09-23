@@ -391,6 +391,9 @@ nmap <leader>w :Goyo<cr>
       "\'x'    : '#(date)',
       "\'y'    : ['%R', '%a', '%Y'],
       "\'z'    : '#H'}
+
+" THIS DOES NOT WORK FOR NOW
+"  How define and use the status_music variable ? 
 if has("unix")
     let s:uname = system("uname")
     if s:uname == "Darwin"
@@ -407,7 +410,7 @@ endif
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
+      \'x'    : ['#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
 
