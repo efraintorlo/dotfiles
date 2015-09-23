@@ -391,15 +391,26 @@ nmap <leader>w :Goyo<cr>
       "\'x'    : '#(date)',
       "\'y'    : ['%R', '%a', '%Y'],
       "\'z'    : '#H'}
-let status_itunes='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin"
+      let status_music='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
+    endif
+    if s:uname == "Linux" 
+        "let status_music = system("rhythmbox-client --print-playing")
+        let status_music = system("uname")
+    endif
+endif
+
  let g:tmuxline_preset = {
       \'a'    : '#S',
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#{status_itunes}','#{battery_icon}#{battery_percentage}'],
+      \'x'    : ['#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
+
 "" configure which stock theme should be used by |:Tmuxline| >
 "let g:tmuxline_preset = 'nightly_fox'
 
