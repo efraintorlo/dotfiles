@@ -410,7 +410,7 @@ endif
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
+      \'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
 
