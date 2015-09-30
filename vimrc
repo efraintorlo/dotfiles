@@ -10,6 +10,15 @@ let g:github='https://github.com/elchinot7'
 let mapleader = ","
 let maplocalleader = ","
 "====================
+" Swapping dot and colon
+"nnoremap . :
+"nnoremap : .
+"Mapping third functions into first
+"inoremap ´ {
+"inoremap { ´
+"===================
+
+
 "Habit breaking, habit making
 "this disables the arrowkeys
 noremap <Up> <NOP>
@@ -46,6 +55,25 @@ set cursorline
 nnoremap <leader>i :set cursorline!<cr>
 
 set tw=80
+"====[ Make the 81st column stand out ]====================
+highlight ColorColumn ctermbg=blue
+call matchadd('ColorColumn', '\%82v', 100)
+
+"set cursorline
+"highlight CursorLine ctermbg=LightBlue
+"set highlight CursorLine ctermbg=#073642
+"highlight CursorLine ctermbg=235
+""=====[ Highlight matches when jumping to next ]=============
+"nnoremap <silent> n n:call HLNext(0.4)<cr>
+"nnoremap <silent> N N:call HLNext(0.4)<cr>
+""=====[ Blink the matching line ]=============
+"function! HLNext (blinktime)
+"set invcursorline
+"redraw
+"exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm' set invcursorline
+"redraw endfunction
+
+
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -211,6 +239,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " HTML
+let g:syntastic_html_tidy_ignore_errors = [
+            \ 'unescaped & which should be written as &amp']
 
 "let g:syntastic_quiet_messages = { "level": "warnings" }
 "FORTRAN
@@ -495,4 +525,7 @@ let g:promptline_preset = {
 "--- SuperTab---
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 "let g:SuperTabDefaultCompletionType = "context"
+
+" Markdown
+autocmd BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md  setf markdown
 
