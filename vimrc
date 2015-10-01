@@ -516,7 +516,8 @@ let g:promptline_preset = {
         "\'z'    : [ promptline#slices#host()]}
         "\'z'    : [ '$(hostname)']}
 
-
+"--- Timestamp---
+let g:timestamp_modelines = 10
 
 "---- Notes vim -----
 "let g:notes_directories = ['~/Documents/Notes_vim', '~/Dropbox/Public/Notes_vim']
