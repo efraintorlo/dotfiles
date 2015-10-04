@@ -241,8 +241,16 @@ let g:LatexBox_show_warnings = 0
 "let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
 let g:LatexBox_latexmk_options = "-pdflatex='pdflatex --shell-escape --synctex=1 --f \%O \%S'"
 let g:LatexBox_latexmk_async = 1
-"let g:LatexBox_viewer = 'mupdf-x11'
-let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin"
+        "let g:LatexBox_viewer = 'mupdf-x11'
+        let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
+    endif
+    if s:uname == "Linux"
+        let g:LatexBox_viewer = "/usr/bin/mupdf -r 95"
+    endif
+endif
 "let g:Tex_DefaultTargetFormat = 'pdf'
 "let g:Tex_CompileRule_pdf = 'latexmk -bibtex -r latexmrc ipmc $*'
 "this Maps does not work
@@ -393,13 +401,13 @@ nmap <leader>w :Goyo<cr>
       "\'z'    : '#H'}
 
 " THIS DOES NOT WORK FOR NOW
-"  How define and use the status_music variable ? 
+"  How define and use the status_music variable ?
 if has("unix")
     let s:uname = system("uname")
     if s:uname == "Darwin"
       let status_music='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
     endif
-    if s:uname == "Linux" 
+    if s:uname == "Linux"
         "let status_music = system("rhythmbox-client --print-playing")
         let status_music = system("uname")
     endif
