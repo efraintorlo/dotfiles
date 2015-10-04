@@ -273,11 +273,11 @@ let g:LatexBox_latexmk_options = "-pdflatex='pdflatex --shell-escape --synctex=1
 let g:LatexBox_latexmk_async = 1
 if has("unix")
     let s:uname = system("uname")
-    if s:uname == "Darwin"
+    if s:uname == "Darwin\n"
         "let g:LatexBox_viewer = 'mupdf-x11'
         let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
     endif
-    if s:uname == "Linux"
+    if s:uname == "Linux\n"
         let g:LatexBox_viewer = "/usr/bin/mupdf -r 95"
     endif
 endif
