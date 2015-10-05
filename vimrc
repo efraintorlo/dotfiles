@@ -276,7 +276,7 @@ if has("unix")
     if s:uname == "Darwin\n"
         "let g:LatexBox_viewer = 'mupdf-x11'
         "let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
-        let g:LatexBox_viewer = 'mupdf-x11i -r 95'
+        let g:LatexBox_viewer = 'mupdf-x11 -r 95'
     endif
     if s:uname == "Linux\n"
         let g:LatexBox_viewer = '/usr/bin/mupdf -r 95'
