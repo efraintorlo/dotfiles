@@ -276,10 +276,10 @@ if has("unix")
     if s:uname == "Darwin\n"
         "let g:LatexBox_viewer = 'mupdf-x11'
         "let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
-        let g:LatexBox_viewer = 'mupdf-x11 -r 95'
+        let g:LatexBox_viewer = 'mupdf-x11 -r 75'
     endif
     if s:uname == "Linux\n"
-        let g:LatexBox_viewer = '/usr/bin/mupdf -r 95'
+        let g:LatexBox_viewer = '/usr/bin/mupdf -r 75'
     endif
 endif
 "let g:Tex_DefaultTargetFormat = 'pdf'
@@ -436,11 +436,11 @@ nmap <leader>w :Goyo<cr>
 if has("unix")
     let s:uname = system("uname")
     if s:uname == "Darwin"
-      let status_music='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
+      "let status_music='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
     endif
     if s:uname == "Linux"
         "let status_music = system("rhythmbox-client --print-playing")
-        let status_music = system("uname")
+        "let status_music = system("uname")
     endif
 endif
 
@@ -449,9 +449,20 @@ endif
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
+
+ " This is commented until the bug in el capitan is fixed
+ "See the discussion:
+ "https://github.com/tmux/tmux/issues/108#issuecomment-145978196
+ "let g:tmuxline_preset = {
+      "\'a'    : '#S',
+      "\'c'    : ['#(whoami)'],
+      "\'win'  : ['#I', '#W'],
+      "\'cwin' : ['#I', '#W', '#F'],
+      "\'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
+      "\'y'    : ['%R', '%a', '%d-%h-%Y'],
+      "\'z'    : '#h'}
 
 "" configure which stock theme should be used by |:Tmuxline| >
 "let g:tmuxline_preset = 'nightly_fox'
