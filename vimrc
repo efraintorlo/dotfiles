@@ -435,10 +435,10 @@ nmap <leader>w :Goyo<cr>
 "  How define and use the status_music variable ?
 if has("unix")
     let s:uname = system("uname")
-    if s:uname == "Darwin"
+    if s:uname == "Darwin\n"
       let status_music='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
     endif
-    if s:uname == "Linux"
+    if s:uname == "Linux\n"
         "let status_music = system("rhythmbox-client --print-playing")
         let status_music = system("uname")
     endif
