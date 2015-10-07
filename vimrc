@@ -449,9 +449,20 @@ endif
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
+
+ " This is commented until the bug in el capitan is fixed
+ "See the discussion:
+ "https://github.com/tmux/tmux/issues/108#issuecomment-145978196
+ "let g:tmuxline_preset = {
+      "\'a'    : '#S',
+      "\'c'    : ['#(whoami)'],
+      "\'win'  : ['#I', '#W'],
+      "\'cwin' : ['#I', '#W', '#F'],
+      "\'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
+      "\'y'    : ['%R', '%a', '%d-%h-%Y'],
+      "\'z'    : '#h'}
 
 "" configure which stock theme should be used by |:Tmuxline| >
 "let g:tmuxline_preset = 'nightly_fox'
