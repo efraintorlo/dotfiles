@@ -550,3 +550,15 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 " Markdown
 autocmd BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md  setf markdown
 
+"  Ack 
+
+
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        let g:ackprg = "ack"
+    endif
+    if s:uname == "Linux\n"
+        let g:ackprg = "ack-grep"
+    endif
+endif
