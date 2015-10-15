@@ -259,6 +259,8 @@ let g:syntastic_cpp_config_file = '.my_custom_include_file_for_syntastic'
 "let g:syntastic_matlab_
 "PYTHON
 let g:syntastic_python_checkers = ['flake8']
+"let g:syntastic_python_checkers = []
+let g:syntastic_python_flake8_args='--ignore=F403,E501'
 "LATEX
 
 "------latex --------
@@ -276,7 +278,7 @@ if has("unix")
     if s:uname == "Darwin\n"
         "let g:LatexBox_viewer = 'mupdf-x11'
         "let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
-        let g:LatexBox_viewer = 'mupdf-x11i -r 95'
+        let g:LatexBox_viewer = 'mupdf-x11 -r 95'
     endif
     if s:uname == "Linux\n"
         let g:LatexBox_viewer = '/usr/bin/mupdf -r 95'
@@ -449,6 +451,7 @@ endif
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
+      \'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
 
