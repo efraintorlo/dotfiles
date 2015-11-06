@@ -10,6 +10,15 @@ let g:github='https://github.com/elchinot7'
 let mapleader = ","
 let maplocalleader = ","
 "====================
+" Swapping dot and colon
+"nnoremap . :
+"nnoremap : .
+"Mapping third functions into first
+"inoremap ´ {
+"inoremap { ´
+"===================
+
+
 "Habit breaking, habit making
 "this disables the arrowkeys
 noremap <Up> <NOP>
@@ -46,6 +55,25 @@ set cursorline
 nnoremap <leader>i :set cursorline!<cr>
 
 set tw=80
+"====[ Make the 81st column stand out ]====================
+highlight ColorColumn ctermbg=blue
+call matchadd('ColorColumn', '\%82v', 100)
+
+"set cursorline
+"highlight CursorLine ctermbg=LightBlue
+"set highlight CursorLine ctermbg=#073642
+"highlight CursorLine ctermbg=235
+""=====[ Highlight matches when jumping to next ]=============
+"nnoremap <silent> n n:call HLNext(0.4)<cr>
+"nnoremap <silent> N N:call HLNext(0.4)<cr>
+""=====[ Blink the matching line ]=============
+"function! HLNext (blinktime)
+"set invcursorline
+"redraw
+"exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm' set invcursorline
+"redraw endfunction
+
+
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -211,6 +239,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " HTML
+let g:syntastic_html_tidy_ignore_errors = [
+            \ 'unescaped & which should be written as &amp']
 
 "let g:syntastic_quiet_messages = { "level": "warnings" }
 "FORTRAN
@@ -229,6 +259,8 @@ let g:syntastic_cpp_config_file = '.my_custom_include_file_for_syntastic'
 "let g:syntastic_matlab_
 "PYTHON
 let g:syntastic_python_checkers = ['flake8']
+"let g:syntastic_python_checkers = []
+let g:syntastic_python_flake8_args='--ignore=F403,E501'
 "LATEX
 
 "------latex --------
@@ -241,8 +273,17 @@ let g:LatexBox_show_warnings = 0
 "let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
 let g:LatexBox_latexmk_options = "-pdflatex='pdflatex --shell-escape --synctex=1 --f \%O \%S'"
 let g:LatexBox_latexmk_async = 1
-"let g:LatexBox_viewer = 'mupdf-x11'
-let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        "let g:LatexBox_viewer = 'mupdf-x11'
+        "let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
+        let g:LatexBox_viewer = 'mupdf-x11 -r 95'
+    endif
+    if s:uname == "Linux\n"
+        let g:LatexBox_viewer = '/usr/bin/mupdf -r 95'
+    endif
+endif
 "let g:Tex_DefaultTargetFormat = 'pdf'
 "let g:Tex_CompileRule_pdf = 'latexmk -bibtex -r latexmrc ipmc $*'
 "this Maps does not work
@@ -281,17 +322,37 @@ if has("autocmd") && exists("+omnifunc")
    \    setlocal omnifunc=syntaxcomplete#Complete |
    \    endif
 endif
+
+
 "----- SNIP -----
+
 
 "-----Fortran.vim -----
 let fortran_free_source = 1
 let fortran_have_tabs = 1
 let fortran_fold_conditionals=1
-""""""  CTAGS """"""""
-let g:tagbar_ctags_bin='/Users/efrain/Programs/ctags/bin/ctags'  " Proper Ctags locations
+
+
+
+
+"--- CTAGS ---
+"let g:tagbar_ctags_bin='/Users/efrain/Programs/ctags/bin/ctags'  " Proper Ctags locations
 let g:tagbar_width= 40                          " Default is 40, seems too wide
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        let g:tagbar_ctags_bin='/Users/efrain/Programs/ctags/bin/ctags'  " Proper Ctags locations
+    endif
+    if s:uname == "Linux\n"
+        let g:tagbar_ctags_bin='/usr/bin/ctags'  " Proper Ctags locations
+    endif
+endif
 "noremap <silent> <Leader>y :TagbarToggle       " Display panel with y (or ,y)
 noremap <silent> <Leader>b :TagbarToggle<CR>       " Display panel with b (or ,b)
+
+
+
+
 
 "-----Color Solarized -----
 syntax enable
@@ -310,6 +371,9 @@ syntax enable
 "colorscheme solarized
 "
 
+
+
+
 " ---PowerLine ----- DEPRECATED !!
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline
 let g:Powerline_symbols = 'fancy'
@@ -320,16 +384,26 @@ set t_Co=256
 set term=xterm-256color
 set termencoding=utf-8
 
+
+
+
+
 " --- CtrlP ----
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.mod,*.o
+
+
+
 "----indent-guides----
 
 set ts=4 sw=4 et
 let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 2
+
+
+
 
 "----- Air-line-----
 " airline options
@@ -342,8 +416,10 @@ let g:airline_powerline_fonts=1
 "let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
 
-"---
-" toggle Limelight
+
+
+
+"--- toggle Limelight
 nmap <leader>f :Limelight!!<cr>
 "nmap <leader>f :Limelight!<cr>
 " Color name (:help cterm-colors) or ANSI code
@@ -369,6 +445,10 @@ let g:limelight_eop = '\ze\n^\s'
 " Highlighting priority (default: 10)
 "   Set it to -1 not to overrule hlsearch
 let g:limelight_priority = -1
+
+
+
+
 "----- GOYO--------
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -376,10 +456,16 @@ autocmd! User GoyoLeave Limelight!
 "nmap <leader>w :setf textile<cr> :Goyo<cr>
 nmap <leader>w :Goyo<cr>
 
+
+
 ""---- base 16 color----
 "set background=dark
 "colorscheme base16-default
 "let base16colorspace=256
+
+
+
+
 
 " ---Tmux Line------
 " custom preset with shell commands
@@ -391,15 +477,42 @@ nmap <leader>w :Goyo<cr>
       "\'x'    : '#(date)',
       "\'y'    : ['%R', '%a', '%Y'],
       "\'z'    : '#H'}
-let status_itunes='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
+
+" THIS DOES NOT WORK FOR NOW
+"  How define and use the status_music variable ?
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+      let status_music='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
+    endif
+    if s:uname == "Linux\n"
+        "let status_music = system("rhythmbox-client --print-playing")
+        let status_music = system("uname")
+    endif
+endif
+
  let g:tmuxline_preset = {
       \'a'    : '#S',
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#{status_itunes}','#{battery_icon}#{battery_percentage}'],
+      \'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
+
+
+ " This is commented until the bug in el capitan is fixed
+ "See the discussion:
+ "https://github.com/tmux/tmux/issues/108#issuecomment-145978196
+ "let g:tmuxline_preset = {
+      "\'a'    : '#S',
+      "\'c'    : ['#(whoami)'],
+      "\'win'  : ['#I', '#W'],
+      "\'cwin' : ['#I', '#W', '#F'],
+      "\'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{battery_icon}#{battery_percentage}'],
+      "\'y'    : ['%R', '%a', '%d-%h-%Y'],
+      "\'z'    : '#h'}
+
 "" configure which stock theme should be used by |:Tmuxline| >
 "let g:tmuxline_preset = 'nightly_fox'
 
@@ -412,6 +525,9 @@ let g:tmuxline_powerline_separators = 1
       "\ 'right_alt' : '/',
       "\ 'space' : ' '}
 
+
+
+
 "--- GUNDO ----
 nnoremap <F5> :GundoToggle<CR>
 "let g:gundo_width          = 60
@@ -422,12 +538,17 @@ let g:gundo_right          = 1
 "-----easymotion--------
 
 
+
+
+
 "----Easy Align ----
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+
 
 
 ">>>>>>>>> MY MAPINGS <<<<<<<<<<<
@@ -438,8 +559,14 @@ inoremap <leader>k <Esc>:m .-2<CR>==gi
 vnoremap <leader>j :m '>+1<CR>gv=gv
 vnoremap <leader>k :m '<-2<CR>gv=gv
 
+
+
+
 "--Markdown to HTML
 nmap <leader>md :%!/usr/local/bin/markdown --html4tags <cr>
+
+
+
 
 "---Vim Markdown -------
 "
@@ -449,6 +576,10 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_math=1
 let g:vim_markdown_frontmatter=1
+
+
+
+
 
 "---- promptline -----
 "https://github.com/edkolev/promptline.vim
@@ -473,12 +604,38 @@ let g:promptline_preset = {
         "\'z'    : [ '$(hostname)']}
 
 
+        
+        
+"--- Timestamp---
+let g:timestamp_modelines = 10
+
+
+
 
 "---- Notes vim -----
 "let g:notes_directories = ['~/Documents/Notes_vim', '~/Dropbox/Public/Notes_vim']
 "let g:notes_directories = ['~/Dropbox/Public/Notes_vim']
 
+
+
 "--- SuperTab---
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 "let g:SuperTabDefaultCompletionType = "context"
 
+
+
+" Markdown
+autocmd BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md  setf markdown
+
+
+
+"---Ack--- 
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        let g:ackprg = "ack"
+    endif
+    if s:uname == "Linux\n"
+        let g:ackprg = "ack-grep"
+    endif
+endif
