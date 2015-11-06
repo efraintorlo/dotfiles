@@ -115,6 +115,14 @@ endfunction
 nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>" Removes trailing spaces
 "---------------------------------------------------
 
+">>>>>>>>> Move a line up & down with correct indentation  <<<<<<<<<<<
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+inoremap <leader>j <Esc>:m .+1<CR>==gi
+inoremap <leader>k <Esc>:m .-2<CR>==gi
+vnoremap <leader>j :m '>+1<CR>gv=gv
+vnoremap <leader>k :m '<-2<CR>gv=gv
+
 
 nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 " Send more characters for redraws
@@ -260,7 +268,7 @@ let g:syntastic_cpp_config_file = '.my_custom_include_file_for_syntastic'
 "PYTHON
 let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_python_checkers = []
-let g:syntastic_python_flake8_args='--ignore=F403,E501'
+let g:syntastic_python_flake8_args='--ignore=F403,E501,E226,E702'
 "LATEX
 
 "------latex --------
@@ -550,14 +558,6 @@ nmap ga <Plug>(EasyAlign)
 
 
 
-
-">>>>>>>>> MY MAPINGS <<<<<<<<<<<
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m .-2<CR>==
-inoremap <leader>j <Esc>:m .+1<CR>==gi
-inoremap <leader>k <Esc>:m .-2<CR>==gi
-vnoremap <leader>j :m '>+1<CR>gv=gv
-vnoremap <leader>k :m '<-2<CR>gv=gv
 
 
 
