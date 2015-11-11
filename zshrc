@@ -80,3 +80,4 @@ alias tree="tree -C"
 alias ssh=~/dotfiles/ssh-host-color.sh
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
+#alias cdg="cd $(git rev-parse --show-toplevel)"
