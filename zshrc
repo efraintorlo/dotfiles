@@ -41,7 +41,7 @@ source ~/.shell_prompt.sh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man git tmux copydir cp brew)
+plugins=(tmuxinator colored-man git tmux copydir cp brew)
 
 # User configuration
 
