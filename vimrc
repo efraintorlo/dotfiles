@@ -57,8 +57,12 @@ nnoremap <leader>i :set cursorline!<cr>
 
 set tw=80
 "====[ Make the 81st column stand out ]====================
-highlight ColorColumn ctermbg=blue
+highlight ColorColumnNew ctermbg=red
+"highlight ColorColumnNew ctermbg=Blue ctermfg=red guibg=#592929
 call matchadd('ColorColumn', '\%82v', 100)
+autocmd ColorScheme highlight ColorColumnNew ctermbg=red
+"autocmd ColorScheme * highlight ColorColumnNew ctermbg=11 ctermfg=white  guibg=#592929
+
 
 "set cursorline
 "highlight CursorLine ctermbg=LightBlue
@@ -206,6 +210,7 @@ Plugin 'reedes/vim-wordy'
 Plugin 'reedes/vim-pencil'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'ervandew/supertab'
+Plugin 'keith/gist.vim'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -640,3 +645,6 @@ if has("unix")
         let g:ackprg = "ack-grep"
     endif
 endif
+
+" Gist.vim
+let g:gist_post_private = 1
