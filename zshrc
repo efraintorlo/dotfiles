@@ -41,7 +41,8 @@ source ~/.shell_prompt.sh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmuxinator colored-man git tmux copydir cp brew)
+#plugins=(osx z dircycle pip ipython tmuxinator colored-man git tmux copydir cp brew)
+plugins=(python pip ipython tmuxinator colored-man git tmux copydir cp brew)
 
 # User configuration
 
@@ -81,6 +82,10 @@ alias ssh=~/dotfiles/ssh-host-color.sh
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
 #alias cdg="cd $(git rev-parse --show-toplevel)"
+alias ipy="ipython"
+alias ipython="ipython notebook"
 
 alias makels="make -rpn | sed -n -e '/^$/ { n ; /^[^ .#][^ ]*:/p ; }' | egrep --color '^[^ ]*:'"
 
+#bindkey "^[[1;6D" insert-cycledleft
+#bindkey "^[[1;6C" insert-cycledright

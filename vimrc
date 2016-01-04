@@ -17,7 +17,7 @@ let maplocalleader = ","
 "inoremap ´ {
 "inoremap { ´
 "===================
-"Beep is annoying 
+"Beep is annoying
 set visualbell
 
 "Habit breaking, habit making
@@ -37,6 +37,14 @@ imap <c-s> <Esc><c-s>
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
+
+" Shift-Enter to run a program ala Mathematic
+" using "make"
+"noremap <S-CR> :make | copen
+"nmap <c-r> :make | copen
+"noremap <F2> :make | copen
+map rr :make <bar> copen<CR>
+
 
 "setlocal spell
 " activate spell-checking alternatives
@@ -211,6 +219,9 @@ Plugin 'reedes/vim-pencil'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'ervandew/supertab'
 Plugin 'keith/gist.vim'
+Plugin 'klen/python-mode'
+Plugin 'AndrewRadev/switch.vim'
+Plugin 'itchyny/lightline.vim'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -600,7 +611,7 @@ let g:vim_markdown_frontmatter=1
       "\'c'    : [ '%d' ]}
 let g:promptline_preset = {
         \'a'    : [ promptline#slices#user() ],
-        \'b'    : [ promptline#slices#cwd({ 'dir_limit': 4 }) ],
+        \'b'    : [ promptline#slices#cwd({ 'dir_limit': 3 }) ],
         \'c'    : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
         \'warn' : [ promptline#slices#last_exit_code() ],
         \'z'    : [ '%T' ]}
@@ -610,8 +621,8 @@ let g:promptline_preset = {
         "\'z'    : [ '$(hostname)']}
 
 
-        
-        
+
+
 "--- Timestamp---
 let g:timestamp_modelines = 10
 
@@ -635,7 +646,7 @@ autocmd BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md  setf markd
 
 
 
-"---Ack--- 
+"---Ack---
 if has("unix")
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
@@ -648,3 +659,26 @@ endif
 
 " Gist.vim
 let g:gist_post_private = 1
+
+" Python-Mode
+let g:pymode_options_colorcolumn = 0
+let g:pymode_lint_ignore = "E501,W0401,C901"
+let g:pymode_rope_lookup_project = 0
+let g:pymode_rope=0
+
+ " Switch.vim
+let g:switch_mapping = "-"
+let g:switch_custom_definitions =
+    \ [
+    \   ['YES', 'NO']
+    \ ]
+
+" ligthline.vim
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
