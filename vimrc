@@ -221,7 +221,7 @@ Plugin 'ervandew/supertab'
 Plugin 'keith/gist.vim'
 Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/switch.vim'
-Plugin 'itchyny/lightline.vim'
+"Plugin 'itchyny/lightline.vim'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -674,11 +674,11 @@ let g:switch_custom_definitions =
     \ ]
 
 " ligthline.vim
-let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}',
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
+"let g:lightline = {
+"      \ 'colorscheme': 'powerline',
+"      \ 'component': {
+"      \   'readonly': '%{&readonly?"⭤":""}',
+"      \ },
+"      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+"      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+"      \ }
