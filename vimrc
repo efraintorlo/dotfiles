@@ -49,6 +49,7 @@ map rr :make <bar> copen<CR>
 "setlocal spell
 " activate spell-checking alternatives
 nmap .s :set invspell spelllang=en<cr>
+nmap .ss :set invspell spelllang=es<cr>
 
 set clipboard=unnamed
 set backspace=2 " make backspace work like most other apps
@@ -222,6 +223,7 @@ Plugin 'keith/gist.vim'
 Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/switch.vim'
 "Plugin 'itchyny/lightline.vim'
+Plugin 'Rykka/riv.vim'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -349,15 +351,10 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 
-"----- SNIP -----
-
-
 "-----Fortran.vim -----
 let fortran_free_source = 1
 let fortran_have_tabs = 1
 let fortran_fold_conditionals=1
-
-
 
 
 "--- CTAGS ---
@@ -374,8 +371,6 @@ if has("unix")
 endif
 "noremap <silent> <Leader>y :TagbarToggle       " Display panel with y (or ,y)
 noremap <silent> <Leader>b :TagbarToggle<CR>       " Display panel with b (or ,b)
-
-
 
 
 
@@ -397,8 +392,6 @@ syntax enable
 "
 
 
-
-
 " ---PowerLine ----- DEPRECATED !!
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline
 let g:Powerline_symbols = 'fancy'
@@ -411,8 +404,6 @@ set termencoding=utf-8
 
 
 
-
-
 " --- CtrlP ----
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -421,12 +412,10 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.mod,*.o
 
 
 "----indent-guides----
-
 set ts=4 sw=4 et
 let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 2
-
 
 
 
@@ -440,7 +429,6 @@ let g:airline_powerline_fonts=1
 "let g:airline_right_sep=''
 "let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
-
 
 
 
@@ -473,7 +461,6 @@ let g:limelight_priority = -1
 
 
 
-
 "----- GOYO--------
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -487,8 +474,6 @@ nmap <leader>w :Goyo<cr>
 "set background=dark
 "colorscheme base16-default
 "let base16colorspace=256
-
-
 
 
 
@@ -563,9 +548,6 @@ let g:gundo_right          = 1
 "-----easymotion--------
 
 
-
-
-
 "----Easy Align ----
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -575,13 +557,8 @@ nmap ga <Plug>(EasyAlign)
 
 
 
-
-
-
-
 "--Markdown to HTML
 nmap <leader>md :%!/usr/local/bin/markdown --html4tags <cr>
-
 
 
 
@@ -593,8 +570,6 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_math=1
 let g:vim_markdown_frontmatter=1
-
-
 
 
 
@@ -622,10 +597,8 @@ let g:promptline_preset = {
 
 
 
-
 "--- Timestamp---
 let g:timestamp_modelines = 10
-
 
 
 
