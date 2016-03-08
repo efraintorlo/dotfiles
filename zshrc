@@ -1,4 +1,4 @@
-source ~/.shell_prompt.sh
+#source ~/.shell_prompt.sh
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
