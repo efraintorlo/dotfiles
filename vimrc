@@ -126,7 +126,8 @@ function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
 
-nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>" Removes trailing spaces
+" Removes trailing spaces
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 "---------------------------------------------------
 
 ">>>>>>>>> Move a line up & down with correct indentation  <<<<<<<<<<<
@@ -137,6 +138,12 @@ inoremap <leader>k <Esc>:m .-2<CR>==gi
 vnoremap <leader>j :m '>+1<CR>gv=gv
 vnoremap <leader>k :m '<-2<CR>gv=gv
 
+" -------------------------------------------------------------
+"With these, you can use \gq or gqlp ("gq LaTeX paragraph") to
+"format paragraphs in your LaTeX files. 
+map \gq ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>gq//-1<CR>
+omap lp ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>//-1<CR>.<CR>
+" -------------------------------------------------------------
 
 nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 " Send more characters for redraws
@@ -224,6 +231,7 @@ Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/switch.vim'
 "Plugin 'itchyny/lightline.vim'
 Plugin 'Rykka/riv.vim'
+Plugin 'Yggdroot/indentLine'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
