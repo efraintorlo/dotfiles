@@ -144,6 +144,7 @@ vnoremap <leader>k :m '<-2<CR>gv=gv
 map \gq ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>gq//-1<CR>
 omap lp ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>//-1<CR>.<CR>
 " -------------------------------------------------------------
+cmap w!! w !sudo tee %
 
 nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 " Send more characters for redraws
@@ -576,7 +577,7 @@ set nofoldenable    " disable folding
 
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
-let g:vim_markdown_math=1
+let g:vim_markdown_math=0
 let g:vim_markdown_frontmatter=1
 
 
@@ -663,3 +664,6 @@ let g:switch_custom_definitions =
 "      \ 'separator': { 'left': '⮀', 'right': '⮂' },
 "      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 "      \ }
+
+" Avoid conceal TeX effects 
+set conceallevel=0
