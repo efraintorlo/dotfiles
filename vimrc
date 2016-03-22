@@ -192,10 +192,6 @@ Bundle 'edkolev/tmuxline.vim'
 Bundle 'vim-scripts/fortran.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-"Plugin 'rbonvall/snipmate-snippets-fortran95'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
@@ -232,8 +228,14 @@ Plugin 'keith/gist.vim'
 Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/switch.vim'
 "Plugin 'itchyny/lightline.vim'
-Plugin 'Rykka/riv.vim'
+"Plugin 'Rykka/riv.vim'
 Plugin 'Yggdroot/indentLine'
+if has("python")
+    Plugin 'SirVer/ultisnips'
+endif
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+"Plugin 'rbonvall/snipmate-snippets-fortran95'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -668,3 +670,19 @@ let g:switch_custom_definitions =
 
 " Avoid conceal TeX effects 
 set conceallevel=0
+
+
+"  ULTISNIPS
+"  ---------
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+if has("python")
+    let g:UltiSnipsExpandTrigger="<Tab>"
+    let g:UltiSnipsJumpForwardTrigger="<Tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-Tab>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+
+    let g:UltiSnipsSnippetDirectories=["UltiSnips", "MySnippets"]
+endif
