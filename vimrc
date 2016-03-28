@@ -5,11 +5,28 @@ let g:snips_email='efraazu@gmail.com'
 let g:email='efraazul@gmail.com'
 let g:snips_github='https://github.com/elchinot7'
 let g:github='https://github.com/elchinot7'
+
 ""====================
 "  Defining: <leader>
 let mapleader = ","
 let maplocalleader = ","
 "====================
+
+" Avoid conceal TeX effects
+" Conceal in tex file: "admgs", a=accents, d=delimiters,
+" m=math symbols, g=Greek, s=superscripts/subscripts:
+let g:tex_conceal=""
+if version >= 703
+    if has("conceal")
+        set conceallevel=0
+        autocmd FileType * setlocal conceallevel=0
+    endif
+endif
+
+" This is quite useful:
+set cmdheight=1
+
+
 " Swapping dot and colon
 "nnoremap . :
 "nnoremap : .
@@ -54,10 +71,13 @@ nmap .ss :set invspell spelllang=es<cr>
 set clipboard=unnamed
 set backspace=2 " make backspace work like most other apps
 set encoding=utf-8
+
 set nu
+
 if exists('+relativenumber')
     set relativenumber
 endif
+
 colorscheme slate
 
 set cursorline
@@ -87,7 +107,19 @@ autocmd ColorScheme highlight ColorColumnNew ctermbg=red
 "exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm' set invcursorline
 "redraw endfunction
 
+hi clear CursorLine
+augroup CLClear
+    autocmd! ColorScheme * hi clear CursorLine
+augroup END
 
+hi CursorLineNR cterm=bold
+augroup CLNRSet
+    autocmd! ColorScheme * hi CursorLineNR cterm=bold, ctermbg=238 ctermfg=250
+augroup END
+
+"hi clear CursorLine
+"set cursorline
+"hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -140,7 +172,7 @@ vnoremap <leader>k :m '<-2<CR>gv=gv
 
 " -------------------------------------------------------------
 "With these, you can use \gq or gqlp ("gq LaTeX paragraph") to
-"format paragraphs in your LaTeX files. 
+"format paragraphs in your LaTeX files.
 map \gq ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>gq//-1<CR>
 omap lp ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>//-1<CR>.<CR>
 " -------------------------------------------------------------
@@ -235,6 +267,8 @@ if has("python")
 endif
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'christoomey/vim-tmux-navigator'
+
 "Plugin 'rbonvall/snipmate-snippets-fortran95'
 "
 " All of your Plugins must be added before the following line
@@ -518,7 +552,7 @@ endif
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --print-playing)','#{prefix_highlight}#{battery_icon}#{battery_percentage}'],
+      \'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --no-start --print-playing)','#{prefix_highlight}#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
 
@@ -668,5 +702,18 @@ let g:switch_custom_definitions =
 "      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 "      \ }
 
-" Avoid conceal TeX effects 
-set conceallevel=0
+
+"  ULTISNIPS
+"  ---------
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+if has("python")
+    let g:UltiSnipsExpandTrigger="<Tab>"
+    let g:UltiSnipsJumpForwardTrigger="<Tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-Tab>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+
+    let g:UltiSnipsSnippetDirectories=["UltiSnips", "MySnippets"]
+endif

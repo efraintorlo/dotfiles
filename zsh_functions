@@ -1,3 +1,5 @@
+# vi:syntax=zsh
+
 function chpwd {
   if [[ -e .info ]]; then
     echo ">>>"

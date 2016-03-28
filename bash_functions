@@ -1,3 +1,5 @@
+# vi:syntax=sh
+
 cd () { builtin cd "$@" && chpwd; }
 pushd () { builtin pushd "$@" && chpwd; }
 popd () { builtin popd "$@" && chpwd; }
