@@ -140,7 +140,7 @@ vnoremap <leader>k :m '<-2<CR>gv=gv
 
 " -------------------------------------------------------------
 "With these, you can use \gq or gqlp ("gq LaTeX paragraph") to
-"format paragraphs in your LaTeX files. 
+"format paragraphs in your LaTeX files.
 map \gq ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>gq//-1<CR>
 omap lp ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>//-1<CR>.<CR>
 " -------------------------------------------------------------
@@ -665,5 +665,8 @@ let g:switch_custom_definitions =
 "      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 "      \ }
 
-" Avoid conceal TeX effects 
-set conceallevel=0
+" Avoid conceal TeX effects
+if version >= 703
+   set conceallevel=0
+   autocmd FileType * setlocal conceallevel=0
+endif
