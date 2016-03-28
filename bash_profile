@@ -1,3 +1,5 @@
+# vi:syntax=sh
+
 #SOME ALIASES BY ET
 alias ls='ls -G'
 alias ll='ls -ahlF'
