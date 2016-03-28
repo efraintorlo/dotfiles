@@ -1,0 +1,45 @@
+
+# ------------
+# ADDED by  ET
+# ------------
+#include a comment
+#\newcommand\mycomment[1]{\textcolor{red}{#1}}
+snippet com 
+	\mycomment{${1:COMMENT}}
+snippet myc 
+	\mycomment{${1:COMMENT}}
+snippet mycom 
+	\mycomment{${1:COMMENT}}
+snippet et 
+	\etcomment{${1:COMMENT}}
+snippet etc 
+	\etcomment{${1:COMMENT}}
+#ref equations
+snippet eqr 
+	Eq.~\eqref{${1:eq:}}
+snippet ref
+	\ref{${1}}
+# cite a BIBENTRY
+
+snippet cit
+	\cite{${1:BIBENTRY}}
+snippet _
+	${1:obj}_{${2:sub}}
+snippet ^
+	${1:base}^{${2:exp}}
+snippet **
+	${1:base}^{${2:exp}}
+snippet -
+	\frac{${1:num}}{${2:den}}
+snippet dot
+	\dot{${1:x}}
+snippet sq
+	\sqrt{${1:x}}
+snippet d
+	\delta ${1:x}
+snippet mean
+	\langle ${1:x} \rangle
+snippet int
+	\int ${1:x} d${2:x}
+snippet cte
+	\mbox{cte}
