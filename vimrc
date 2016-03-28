@@ -140,7 +140,7 @@ vnoremap <leader>k :m '<-2<CR>gv=gv
 
 " -------------------------------------------------------------
 "With these, you can use \gq or gqlp ("gq LaTeX paragraph") to
-"format paragraphs in your LaTeX files.
+"format paragraphs in your LaTeX files. 
 map \gq ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>gq//-1<CR>
 omap lp ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>//-1<CR>.<CR>
 " -------------------------------------------------------------
@@ -192,9 +192,6 @@ Bundle 'edkolev/tmuxline.vim'
 Bundle 'vim-scripts/fortran.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-"Plugin 'rbonvall/snipmate-snippets-fortran95'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
@@ -231,8 +228,14 @@ Plugin 'keith/gist.vim'
 Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/switch.vim'
 "Plugin 'itchyny/lightline.vim'
-Plugin 'Rykka/riv.vim'
+"Plugin 'Rykka/riv.vim'
 Plugin 'Yggdroot/indentLine'
+if has("python")
+    Plugin 'SirVer/ultisnips'
+endif
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+"Plugin 'rbonvall/snipmate-snippets-fortran95'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -665,8 +668,5 @@ let g:switch_custom_definitions =
 "      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 "      \ }
 
-" Avoid conceal TeX effects
-if version >= 703
-   set conceallevel=0
-   autocmd FileType * setlocal conceallevel=0
-endif
+" Avoid conceal TeX effects 
+set conceallevel=0
