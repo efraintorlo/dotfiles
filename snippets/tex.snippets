@@ -1,45 +1,87 @@
-
+# vi:syntax=sh
 # ------------
 # ADDED by  ET
 # ------------
-#include a comment
-#\newcommand\mycomment[1]{\textcolor{red}{#1}}
-snippet com 
-	\mycomment{${1:COMMENT}}
-snippet myc 
-	\mycomment{${1:COMMENT}}
-snippet mycom 
-	\mycomment{${1:COMMENT}}
-snippet et 
-	\etcomment{${1:COMMENT}}
-snippet etc 
-	\etcomment{${1:COMMENT}}
+snippet com "add \mycomment{}" w!
+\mycomment{${1:COMMENT}}
+endsnippet
+
+snippet my "add \mycomment{}" w!
+\mycomment{${1:COMMENT}}
+endsnippet
+
+snippet myc "add \mycomment{}" w!
+\mycomment{${1:COMMENT}}
+endsnippet
+
+snippet mycom "add \mycomment{}" w!
+\mycomment{${1:COMMENT}}
+endsnippet
+
+snippet et "add \etcomment{}" w!
+\etcomment{${1:COMMENT}}
+endsnippet
+
+snippet etc "add \etcomment{}" w!
+\etcomment{${1:COMMENT}}
+endsnippet
+
 #ref equations
-snippet eqr 
-	Eq.~\eqref{${1:eq:}}
-snippet ref
-	\ref{${1}}
+snippet eqr "\eqref{}" w! 
+Eq.~\eqref{${1:eq:}}
+endsnippet
+
+snippet ref "\ref{}" w!
+\ref{${1:LABEL}}
+endsnippet
+
 # cite a BIBENTRY
 
-snippet cit
-	\cite{${1:BIBENTRY}}
-snippet _
-	${1:obj}_{${2:sub}}
-snippet ^
-	${1:base}^{${2:exp}}
-snippet **
-	${1:base}^{${2:exp}}
-snippet -
-	\frac{${1:num}}{${2:den}}
-snippet dot
-	\dot{${1:x}}
-snippet sq
-	\sqrt{${1:x}}
-snippet d
-	\delta ${1:x}
-snippet mean
-	\langle ${1:x} \rangle
-snippet int
-	\int ${1:x} d${2:x}
-snippet cte
-	\mbox{cte}
+snippet cit "\cite{}" w!
+\cite{${1:BIBENTRY}}
+endsnippet
+
+snippet _ "{A}_{B}" w!
+${1:obj}_{${2:sub}}
+endsnippet
+
+snippet ^ "{A}^{B}" w!
+${1:base}^{${2:exp}}
+endsnippet
+
+snippet ** "{A}^{B}" w!
+${1:base}^{${2:exp}}
+endsnippet
+
+snippet "\/" "\frac{}{}" w!
+\frac{${1:num}}{${2:den}}
+endsnippet
+
+snippet - "\frac{}{}" w!
+\frac{${1:num}}{${2:den}}
+endsnippet
+
+snippet dot "\dot{}" w!
+\dot{${1:x}}
+endsnippet
+
+snippet sq "\sqrt{}" w!
+\sqrt{${1:x}}
+endsnippet
+
+snippet d "\delta" w!
+\delta ${1:x}
+endsnippet
+
+snippet mean "\langle \rangle" w!
+\langle ${1:x} \rangle
+endsnippet
+
+snippet int "\int x dx" w!
+\int ${1:x} d${2:x}
+endsnippet
+
+snippet cte "\mbox{cte}" w!
+\mbox{cte}
+endsnippet
+
