@@ -268,6 +268,7 @@ endif
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'chrisbra/Colorizer'
 
 "Plugin 'rbonvall/snipmate-snippets-fortran95'
 "
