@@ -26,7 +26,24 @@ endif
 " This is quite useful:
 set cmdheight=1
 
+" Disabling PageUp & PageDown
+map <PageUp> <NOP>
+map <PageDown> <NOP>
 
+" Insert a New line & return to normal mode
+nnoremap oo o<Esc>
+nnoremap OO O<Esc>
+
+" This function:
+function! FixLastSpellingError()
+  normal! mm[s1z=`m"
+endfunction
+nnoremap <leader>sp :call FixLastSpellingError()<cr>
+nnoremap <leader>zz :call FixLastSpellingError()<cr>
+
+" set 'updatetime' to 15 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+au InsertLeave * let &updatetime=updaterestore
 " Swapping dot and colon
 "nnoremap . :
 "nnoremap : .
@@ -175,6 +192,7 @@ vnoremap <leader>k :m '<-2<CR>gv=gv
 "format paragraphs in your LaTeX files.
 map \gq ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>gq//-1<CR>
 omap lp ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>//-1<CR>.<CR>
+"omap lp ?^$\\|^\s*\(\\)begin\\|\\label\)?-1<CR>//-1<CR>.<CR>
 " -------------------------------------------------------------
 cmap w!! w !sudo tee %
 
@@ -421,7 +439,18 @@ endif
 "noremap <silent> <Leader>y :TagbarToggle       " Display panel with y (or ,y)
 noremap <silent> <Leader>b :TagbarToggle<CR>       " Display panel with b (or ,b)
 
+" ---- delimitMate -----
+au FileType python let b:delimitMate_jump_expansion = 1
+au FileType python let b:delimitMate_expand_cr = 1
+au FileType python let b:delimitMate_expand_space = 1
+au FileType python let b:delimitMate_expand_inside_quotes = 1
+au FileType python let b:delimitMate_nesting_quotes = ['"']
 
+
+au FileType tex let b:delimitMate_jump_expansion = 1
+au FileType tex let b:delimitMate_expand_cr = 1
+au FileType tex let b:delimitMate_expand_space = 1
+au FileType tex let b:delimitMate_expand_inside_quotes = 1
 
 "-----Color Solarized -----
 syntax enable
