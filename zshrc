@@ -42,11 +42,10 @@
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(osx z dircycle pip ipython tmuxinator colored-man git tmux copydir cp brew)
-plugins=(virtualenv gem python pip ipython tmuxinator colored-man git tmux copydir cp brew)
+plugins=( command-not-found virtualenv gem python pip ipython tmuxinator colored-man-pages git tmux copydir cp)
 
 # User configuration
 
-#export PATH="/Applications/VisIt2.app/Contents/MacOS:/Users/efrain/Programs/fftw3:/Users/efrain/Programs/silo/bin:/Users/efrain/Programs/silo:/Users/efrain/Programs/hdf5:/Users/efrain/Programs/szip:/opt/intel/composer_xe_2015.3.187/bin/intel64:/Applications/eclipse:/Users/efrain/Programs/LiE::/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/opt/intel/composer_xe_2015.3.187/debugger/gdb/intel64/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -78,10 +77,10 @@ source $ZSH/oh-my-zsh.sh
 alias cl="clear"
 alias lt="ls -t"
 alias tree="tree -C"
-alias ssh=~/dotfiles/ssh-host-color.sh
-alias pbcopy="xclip -selection clipboard"
+#alias ssh=~/dotfiles/ssh-host-color.sh
+# alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
-#alias cdg="cd $(git rev-parse --show-toplevel)"
+# alias cdg="cd $(git rev-parse --show-toplevel)"
 alias ipy="ipython"
 alias ipython="ipython notebook"
 

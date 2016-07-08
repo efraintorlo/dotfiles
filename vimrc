@@ -12,6 +12,12 @@ let mapleader = ","
 let maplocalleader = ","
 "====================
 
+
+" Sudo Save
+command! -nargs=0 W w !sudo tee % > /dev/null
+
+
+
 " Avoid conceal TeX effects
 " Conceal in tex file: "admgs", a=accents, d=delimiters,
 " m=math symbols, g=Greek, s=superscripts/subscripts:
@@ -29,6 +35,8 @@ set cmdheight=1
 " Disabling PageUp & PageDown
 map <PageUp> <NOP>
 map <PageDown> <NOP>
+imap <PageUp> <NOP>
+imap <PageDown> <NOP>
 
 " Insert a New line & return to normal mode
 nnoremap oo o<Esc>
@@ -38,8 +46,12 @@ nnoremap OO O<Esc>
 function! FixLastSpellingError()
   normal! mm[s1z=`m"
 endfunction
+function! FixNextSpellingError()
+  normal! mm]s1z=`m"
+endfunction
 nnoremap <leader>sp :call FixLastSpellingError()<cr>
 nnoremap <leader>zz :call FixLastSpellingError()<cr>
+nnoremap <leader>ZZ :call FixNextSpellingError()<cr>
 
 " set 'updatetime' to 15 seconds when in insert mode
 au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
@@ -60,6 +72,10 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+"inoremap <Up> <NOP>
+"inoremap <Down> <NOP>
+"inoremap <Left> <NOP>
+"inoremap <Right> <NOP>
 "====================
 "Saving !
 map <Esc><Esc> :w<CR> :echom '...file saved'<CR>
@@ -275,7 +291,7 @@ Plugin 'reedes/vim-pencil'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'ervandew/supertab'
 Plugin 'keith/gist.vim'
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
 Plugin 'AndrewRadev/switch.vim'
 "Plugin 'itchyny/lightline.vim'
 "Plugin 'Rykka/riv.vim'
@@ -647,7 +663,7 @@ set nofoldenable    " disable folding
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_math=0
-let g:vim_markdown_frontmatter=1
+let g:vim_markdown_frontmatter=0
 
 
 

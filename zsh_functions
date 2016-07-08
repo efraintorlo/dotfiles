@@ -1,8 +1,9 @@
 # vi:syntax=zsh
 
 function chpwd {
-  if [[ -e .info ]]; then
-    echo ">>>"
-    cat .info
-    echo ">>>"
-fi }
+    if [[ -e .info ]]; then
+        echo ">>>"
+        cat .info
+        #pygmentize -g .info
+        echo ">>>"
+    fi }
