@@ -1,0 +1,11 @@
+# vi:syntax=sh
+#!/bin/bash
+
+# Check if odriveagent is running
+# odriveagent is ~/.odrive-agent/bin 
+if pgrep "odriveagent" > /dev/null
+then
+    echo "Odrive is Running"
+else
+    nohup odriveagent > /dev/null &
+fi

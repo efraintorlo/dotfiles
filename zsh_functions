@@ -6,4 +6,8 @@ function chpwd {
         cat .info
         #pygmentize -g .info
         echo ">>>"
-    fi }
+    fi
+
+    if type odrive  > /dev/null; then
+        echo "Odrive:" && odrive syncstate . | head -1
+    fi}

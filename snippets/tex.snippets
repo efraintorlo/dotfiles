@@ -2,6 +2,36 @@
 # ------------
 # ADDED by  ET
 # ------------
+# Equan array
+snippet eqn "equationarray environment" !w
+\begin{eqnarray}
+   && ${1}
+    \\\\
+   && ${2}
+\end{eqnarray}
+${0}
+endsnippet
+
+# Equation array with label
+snippet eqnl "Labeled equation array environment" !w
+\begin{eqnarray} \label{eq:${1}}
+   &&${2}
+    \\\\
+   && ${3}
+\end{eqnarray}
+${0}
+endsnippet
+
+# Equation array unnumbered
+snippet eqn* "Unnumbered equation array environment" !w
+\begin{eqnarray*}
+   &&${1}
+    \\\\
+   &&${2}
+\end{eqnarray*}
+${0}
+endsnippet
+
 snippet com "add \mycomment{}" w!
 \mycomment{${1:COMMENT}}
 endsnippet
@@ -85,3 +115,38 @@ snippet cte "\mbox{cte}" w!
 \mbox{cte}
 endsnippet
 
+snippet bar "\bar{}" w!
+\bar{${1:x}}
+endsnippet
+
+snippet nabla2 "\Nabla^2" w!
+\nabla^2
+endsnippet
+
+# ---------------------------------------
+# Tensors
+# ---------------------------------------
+snippet tensor "Tensor contravariant" w!
+{${1:Tensor}}_{${2:index}}
+endsnippet
+
+snippet ten "Tensor contravariant" w!
+{${1:Tensor}}_{${2:index}}
+endsnippet
+
+snippet tend "Tensor contravariant" w!
+{${1:Tensor}}_{${2:index}}
+endsnippet
+
+snippet tenu "Tensor contravariant" w!
+{${1:Tensor}}^{${2:index}}
+endsnippet
+
+snippet tenud "Tensor contravariant" w!
+{${1:Tensor}}^{${2:index}}_{${3:index}}
+endsnippet
+
+snippet tendu "Tensor contravariant" w!
+{${1:Tensor}}_{${2:index}}^{${3:index}}
+endsnippet
+# ---------------------------------------
