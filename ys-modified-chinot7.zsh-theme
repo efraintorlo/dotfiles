@@ -54,6 +54,27 @@ ys_prompt_virtualenv() {
         echo -n ""
     fi
 }
+
+# Odrive status
+local odrive_info='$(ys_prompt_odrive)'
+
+ys_prompt_odrive() {
+    local has_odrive="$(type odrive > /dev/null)"
+    if $has_odrive; then
+        local odrive_status="$(odrive syncstate . | head -1)"
+        if [[ $odrive_status == *"Not Sync"* ]]; then
+            echo -n "%{$fg[red]%}(odrive x) %{$reset_color%}"
+        elif [[ $odrive_status == *"Synced"* ]]; then
+            echo -n "%{$fg[green]%}(odrive o) %{$reset_color%}"
+        elif [[ $odrive_status == *"Active"* ]]; then
+            echo -n "%{$fg[yellow]%}(odrive >>) %{$reset_color%}"
+        fi
+    else
+        echo -n ""
+    fi
+}
+
+
 # Prompt format: \n # (virtualenv) USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $ 
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
@@ -65,6 +86,7 @@ ${virtualenv_info}\
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
+${odrive_info}\
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}> %{$reset_color%}"
 
@@ -79,6 +101,7 @@ ${virtualenv_info}\
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
+${odrive_info}\
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}>$ %{$reset_color%}"
 fi
