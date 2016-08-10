@@ -2,13 +2,26 @@
 
 function chpwd {
     if [[ -e .info ]]; then
-        echo ">>>"
-        cat .info
+        echo ""
+        echo "⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴  ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛ "
+        echo ""
+        #cat .info
+        #echo $(cat .info)
         #pygmentize -g .info
-        echo ">>>"
+        #IFS=''
+        while IFS='' read line
+        do
+            if [[ $line != \#* ]]; then # this to avoid commented lines
+                echo -e "$line"
+            fi
+        done < .info
+
+        echo ""
+        echo "⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴  ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛ "
+        echo ""
     fi
     # Now this is included in ys-modifies_chinot7-zsh.theme
     #if type odrive  > /dev/null; then
-        #echo "Odrive:" && odrive syncstate . | head -1
+    #echo "Odrive:" && odrive syncstate . | head -1
     #fi
 }

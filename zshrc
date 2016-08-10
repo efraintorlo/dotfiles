@@ -42,7 +42,7 @@
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(osx z dircycle pip ipython tmuxinator colored-man git tmux copydir cp brew)
-plugins=(heroku command-not-found virtualenv gem python pip ipython tmuxinator colored-man-pages git tmux copydir cp)
+plugins=(odrive z history heroku command-not-found virtualenv gem python pip ipython tmuxinator colored-man-pages git tmux copydir cp)
 
 # User configuration
 

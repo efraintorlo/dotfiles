@@ -1,11 +1,20 @@
-# vi:syntax=sh
+# vi:syntax=zsh
 #!/bin/bash
 
-# Check if odriveagent is running
-# odriveagent is ~/.odrive-agent/bin 
-if pgrep "odriveagent" > /dev/null
-then
-    echo "Odrive is Running"
-else
-    nohup odriveagent > /dev/null &
-fi
+## ---------------------------------------------------
+## NOTE: 
+##      This function was moved into:
+##      ~/.oh-my-shell/custom/plugins/odrive/.plugin.zsh
+## ---------------------------------------------------
+##     Check the updates @:
+##       https://bitbucket.org/elchinot7/zsh_completion
+## ---------------------------------------------------
+## Check if odriveagent is running
+## odriveagent is ~/.odrive-agent/bin 
+#if pgrep "odriveagent" > /dev/null
+#then
+#    echo "Odrive is Running"
+#else
+#    nohup odriveagent > /dev/null &
+#fi
+## ---------------------------------------------------

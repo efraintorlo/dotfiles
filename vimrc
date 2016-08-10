@@ -6,17 +6,19 @@ let g:email='efraazul@gmail.com'
 let g:snips_github='https://github.com/elchinot7'
 let g:github='https://github.com/elchinot7'
 
-""====================
+" ====================
 "  Defining: <leader>
 let mapleader = ","
 let maplocalleader = ","
-"====================
+" ====================
 
 
 " Sudo Save
 command! -nargs=0 W w !sudo tee % > /dev/null
+cmap w!! w !sudo tee %
 
-
+" associate *.info with conf filetype
+au BufRead,BufNewFile *.info setfiletype conf
 
 " Avoid conceal TeX effects
 " Conceal in tex file: "admgs", a=accents, d=delimiters,
@@ -112,6 +114,7 @@ if exists('+relativenumber')
 endif
 
 colorscheme slate
+"highlight Pmenu guibg=brown gui=bold
 
 set cursorline
 " toggle cursor line
@@ -210,7 +213,8 @@ map \gq ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>gq//-1<CR>
 omap lp ?^$\\|^\s*\(\\)begin\\|\\end\\|\\label\)?1<CR>//-1<CR>.<CR>
 "omap lp ?^$\\|^\s*\(\\)begin\\|\\label\)?-1<CR>//-1<CR>.<CR>
 " -------------------------------------------------------------
-cmap w!! w !sudo tee %
+
+nmap == gqlp
 
 nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 " Send more characters for redraws
@@ -279,7 +283,7 @@ if version > 703
     Plugin 'vim-pandoc/vim-pandoc-syntax'
 endif
 Bundle 'edkolev/promptline.vim'
-Bundle 'tpope/vim-speeddating'
+"Bundle 'tpope/vim-speeddating'
 Bundle 'vim-scripts/timestamp.vim'
 Plugin 'irrationalistic/vim-tasks'
 Plugin 'xolox/vim-notes'
@@ -303,6 +307,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chrisbra/Colorizer'
+Plugin 'vim-scripts/AfterColors.vim'
 
 "Plugin 'rbonvall/snipmate-snippets-fortran95'
 "
@@ -403,16 +408,16 @@ let g:LatexBox_fold_automatic = 0
 let g:LatexBox_Folding = 1
 let g:LatexBox_fold_toc = 1
 
-imap <buffer> [[     \begin{
+"imap <buffer> [[     \begin{
 
-imap <buffer> ]]     <Plug>LatexCloseCurEnv
+"imap <buffer> ]]     <Plug>LatexCloseCurEnv
 
-imap <buffer> [[     \begin{
-imap <buffer> ]]     <Plug>LatexCloseCurEnv
+"imap <buffer> [[     \begin{
+"imap <buffer> ]]     <Plug>LatexCloseCurEnv
 "nmap <buffer> <F5>   <Plug>LatexChangeEnv " I'm using F5 for GUNDO
 "vmap <buffer> <F7>   <Plug>LatexWrapSelection
 "vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
-imap <buffer> ((     \eqref{
+"imap <buffer> ((     \eqref{
 
 "How to type this ?
 "map  <silent> <buffer> ¶ :call LatexBox_JumpToNextBraces(0)<CR>
@@ -463,10 +468,11 @@ au FileType python let b:delimitMate_expand_inside_quotes = 1
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 
-au FileType tex let b:delimitMate_jump_expansion = 1
-au FileType tex let b:delimitMate_expand_cr = 1
-au FileType tex let b:delimitMate_expand_space = 1
-au FileType tex let b:delimitMate_expand_inside_quotes = 1
+au FileType tex,plaintex let b:delimitMate_jump_expansion = 1
+au FileType tex,plaintex let b:delimitMate_expand_cr = 1
+au FileType tex,plaintex let b:delimitMate_expand_space = 1
+au FileType tex,plaintex let b:delimitMate_expand_inside_quotes = 1
+au FileType tex,plaintex let b:delimitMate_autoclose = 0
 
 "-----Color Solarized -----
 syntax enable
@@ -711,6 +717,13 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 " Markdown
 autocmd BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md  setf markdown
 
+" --- vim-pencil ---
+augroup pencil
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init()
+    autocmd FileType text         call pencil#init()
+    "autocmd FileType tex          call pencil#init()
+augroup END
 
 
 "---Ack---
@@ -765,3 +778,5 @@ if has("python")
 
     let g:UltiSnipsSnippetDirectories=["UltiSnips", "MySnippets"]
 endif
+
+"highlight Pmenu guibg=brown gui=bold
