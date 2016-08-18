@@ -577,7 +577,32 @@ nmap <leader>w :Goyo<cr>
 
 
 
+"====================
 " ---Tmux Line------
+"====================
+"  Make sure the airline-tmuxline extension is disabled:
+let g:airline#extensions#tmuxline#enabled = 0
+
+" Reload the theme automatically
+if strlen($TMUX)
+    autocmd VimEnter * Tmuxline
+endif
+
+" My custom theme:
+let g:tmuxline_theme = {
+        \ 'a'       : [ 16, 11, 'bold'],
+        \ 'b'       : [ 208, 16 ],
+        \ 'c'       : [ 16, 208, 'bold'],
+        \ 'x.dim'   : [ 243, 16 ],
+        \ 'x'       : [ 208, 16 ],
+        \ 'y.dim'   : [ 243, 16 ],
+        \ 'y'       : [ 208, 16 ],
+        \ 'z'       : [ 248, 16, 'bold'],
+        \ 'bg'      : [ 208, 16],
+        \ 'win'     : [ 24, 16, 'bold' ],
+        \ 'win.dim' : [ 24, 16 ],
+        \ 'cwin'    : [ 16, 24, 'bold']}
+
 " custom preset with shell commands
 "let g:tmuxline_preset = {
       "\'a'    : '#S',
@@ -588,27 +613,29 @@ nmap <leader>w :Goyo<cr>
       "\'y'    : ['%R', '%a', '%Y'],
       "\'z'    : '#H'}
 
-" THIS DOES NOT WORK FOR NOW
-"  How define and use the status_music variable ?
-if has("unix")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n"
-      let status_music='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
-    endif
-    if s:uname == "Linux\n"
-        "let status_music = system("rhythmbox-client --print-playing")
-        let status_music = system("uname")
-    endif
-endif
+"" THIS DOES NOT WORK FOR NOW
+""  How define and use the status_music variable ?
+"if has("unix")
+"    let s:uname = system("uname")
+"    if s:uname == "Darwin\n"
+"      let status_music='call system("osascript ~/dotfiles/applescripts/itunes.scpt". expand("%"))'
+"    endif
+"    if s:uname == "Linux\n"
+"        "let status_music = system("rhythmbox-client --print-playing")
+"        let status_music = system("uname")
+"    endif
+"endif
 
  let g:tmuxline_preset = {
       \'a'    : '#S',
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --no-start --print-playing)','#{prefix_highlight}#{battery_icon}#{battery_percentage}'],
+      \'x'    : ['#(~/dotfiles/tmuxbarmusic.sh)','#{prefix_highlight}#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
+""      \'x'    : ['#(~/.local/bin/streema.py)#(~/.local/bin/stupify.py)#(rhythmbox-client --no-start --print-playing)','#{prefix_highlight}#{battery_icon}#{battery_percentage}'],
+ ""      \'x'    : ['#(~/.local/bin/stupify.py)#(osascript ~/dotfiles/applescripts/spotify.scpt)#(osascript ~/dotfiles/applescripts/itunes.scpt)#(rhythmbox-client --no-start --print-playing)','#{prefix_highlight}#{battery_icon}#{battery_percentage}'],
 
 
  " This is commented until the bug in el capitan is fixed

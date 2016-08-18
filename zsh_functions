@@ -25,3 +25,16 @@ function chpwd {
     #echo "Odrive:" && odrive syncstate . | head -1
     #fi
 }
+
+function tmuxbarmusic {
+
+    rhythmisplaying=$(rhythmbox-client --no-start --print-playing)
+
+    if [[ $rhythmisplaying == *"Absolute-Rock"* ]]; then
+       streema.py
+    elif [[ $rhythmisplaying == " - " ]]; then
+       stupify.py
+    else
+        echo $rhythmisplaying
+    fi 
+}
