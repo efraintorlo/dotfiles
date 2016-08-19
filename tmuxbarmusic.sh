@@ -28,7 +28,7 @@ nowplaying=$(rhythmbox-client --no-start --print-playing)
 if [[ $nowplaying == *"Absolute-Rock"* ]]; then
     echo "♫" $(streema.py)  # https://github.com/elchinot7/streema.py
 elif [[ $nowplaying == " - " ]] || [[ $nowplaying == "" ]]; then
-    echo "♫" $(stupify.py)  # https://github.com/elchinot7/spotify_control.py
+    echo "♫" $(stupify.py) # https://github.com/elchinot7/spotify_control.py
 else
-    echo  "♫ $rhythmisplaying"
+    echo  "♫ $nowplaying" | cut -c 1-32
 fi

@@ -1,14 +1,23 @@
 # vi:syntax=zsh
+# ------------------------------------------------------
+#	File        : zsh_functions
+#	Author      : elchinot7
+#	Email       : efraazu@gmail.com
+#	Github      : https://github.com/elchinot7
+#	Description : https://github.com/elchinot7/dotfiles
+# ------------------------------------------------------
+
+function printbar {
+    cols=$(tput cols)
+    cols=$((cols / 6))
+    printf '⚛  ∴ %.0s' {1..$cols}
+}
 
 function chpwd {
     if [[ -e .info ]]; then
         echo ""
-        echo "⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴  ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛ "
+        printbar
         echo ""
-        #cat .info
-        #echo $(cat .info)
-        #pygmentize -g .info
-        #IFS=''
         while IFS='' read line
         do
             if [[ $line != \#* ]]; then # this to avoid commented lines
@@ -17,24 +26,20 @@ function chpwd {
         done < .info
 
         echo ""
-        echo "⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴  ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛ "
+        printbar
         echo ""
     fi
-    # Now this is included in ys-modifies_chinot7-zsh.theme
-    #if type odrive  > /dev/null; then
-    #echo "Odrive:" && odrive syncstate . | head -1
-    #fi
 }
 
 function tmuxbarmusic {
 
-    rhythmisplaying=$(rhythmbox-client --no-start --print-playing)
+    nowplaying=$(rhythmbox-client --no-start --print-playing)
 
-    if [[ $rhythmisplaying == *"Absolute-Rock"* ]]; then
-       streema.py
-    elif [[ $rhythmisplaying == " - " ]]; then
-       stupify.py
+    if [[ $nowplaying == *"Absolute-Rock"* ]]; then
+        echo "♫" $(streema.py)  # https://github.com/elchinot7/streema.py
+    elif [[ $nowplaying == " - " ]] || [[ $nowplaying == "" ]]; then
+        echo "♫" $(stupify.py) # https://github.com/elchinot7/spotify_control.py
     else
-        echo $rhythmisplaying
-    fi 
+        echo  "♫ $nowplaying" | cut -c 1-32
+    fi
 }
