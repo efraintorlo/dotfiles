@@ -1,6 +1,6 @@
 #!/bin/bash
 # ------------------------------------------------------
-#	File        : tmuxbarmusic.sh
+#	File        : now_playing.sh
 #	Author      : elchinot7
 #	Email       : efraazu@gmail.com
 #	Github      : https://github.com/elchinot7
