@@ -1,0 +1,9 @@
+# vi:syntax=sh
+
+alias g='git'
+alias gs='git status'
+alias ga='git add --all'
+alias gc='git commit'
+alias gpom='git push origin master'
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative"
+alias glg='glog'

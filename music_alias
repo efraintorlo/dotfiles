@@ -1,0 +1,19 @@
+# vi:syntax=sh
+# MUSIC ALIAS
+alias p="playerctl play-pause && playerctl metadata title"
+alias pp="playerctl play-pause && playerctl metadata title"
+alias pn="playerctl next && playerctl metadata title"
+alias pb="playerctl previous && playerctl metadata title"
+alias p+="playerctl volume"
+alias pv="playerctl volume"
+alias k='amixer -D pulse sset Master 10%+ |sed -n "s/.*\[\([^]]*\%\)\].*/Volume:\1/p" | head -1'
+alias j='amixer -D pulse sset Master 10%- |sed -n "s/.*\[\([^]]*\%\)\].*/Volume:\1/p" | head -1'
+alias kk='k && k'
+alias kkk='kk && k'
+alias kkkk='kk && kk'
+alias jj='j && j'
+alias jjj='jj && j'
+alias jjjj='jj && jj'
+alias h='playerctl previous && playerctl metadata title'
+alias l='playerctl next && playerctl metadata title'
+

@@ -1,0 +1,19 @@
+# vi:syntax=sh
+
+alias ":q"="exit"
+alias ":e"="vim"
+alias vim="vim --servername testserver"
+alias tmux="tmux -2"
+alias open="xdg-open $@ 2>/dev/null"
+alias openall="ls -b $@ | xargs -n 1 xdg-open 2>/dev/null"
+alias mux="TERM=xterm-256color mux"
+alias gdb="gdb-ia"
+alias htop='sudo htop'
+alias vimtoc='vim `cat .toc`'
+alias vitoc='vim `cat .toc`'
+alias vimrc='vim ~/dotfiles/vimrc'
+alias vimzsh='vim ~/dotfiles/zshrc'
+alias vimzrc='vim ~/dotfiles/zshrc'
+alias vimz='vim ~/dotfiles/zshrc'
+alias py='python'
+alias py3='python3'

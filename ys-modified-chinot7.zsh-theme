@@ -74,6 +74,15 @@ ys_prompt_odrive() {
     fi
 }
 
+function get_pwd() {
+  #echo "${PWD/$HOME/~}"
+  pwd="$(basename $(dirname $PWD))/$(basename $PWD)"
+  #pwd="$(basename $(dirname $(dirname $PWD)))/$(basename $(dirname $PWD))/$(basename $PWD)"
+  #echo "${pwd/$HOME/~}"
+  echo $pwd
+}
+
+local my_current_dir='$(get_pwd)'
 
 # Prompt format: \n # (virtualenv) USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $ 
 PROMPT="
@@ -83,7 +92,7 @@ ${virtualenv_info}\
 %{$fg[white]%}at \
 %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
-%{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
+%{$terminfo[bold]$fg[yellow]%}${my_current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
 ${odrive_info}\
