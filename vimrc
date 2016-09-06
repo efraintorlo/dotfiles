@@ -17,6 +17,10 @@ let maplocalleader = ","
 command! -nargs=0 W w !sudo tee % > /dev/null
 cmap w!! w !sudo tee %
 
+" Zoom-in window to get Full screen
+" to close the zoomed window just type ':wq'
+nnoremap <leader><leader>z :tabnew %<cr>
+
 " associate *.info with conf filetype
 au BufRead,BufNewFile *.info setfiletype conf
 
@@ -44,7 +48,19 @@ imap <PageDown> <NOP>
 nnoremap oo o<Esc>
 nnoremap OO O<Esc>
 
-" This function:
+" Uppercase sigle word
+function! UppercaseSingleWord()
+    normal! viwU
+endfunction
+" Lowercase sigle word
+function! LowercaseSingleWord()
+    normal! viwu
+endfunction
+
+nnoremap <leader>U :call UppercaseSingleWord()<cr>
+nnoremap <leader>u :call LowercaseSingleWord()<cr>
+
+" Fix Last Spelling Error
 function! FixLastSpellingError()
   normal! mm[s1z=`m"
 endfunction

@@ -1,5 +1,7 @@
 # vi:syntax=sh
-
+alias editalias='vim ~/dotfiles/*_alias'
+alias aliasedit='vim ~/dotfiles/*_alias'
+alias vimalias='vim ~/dotfiles/*_alias'
 alias ":q"="exit"
 alias ":e"="vim"
 alias vim="vim --servername testserver"
@@ -17,3 +19,4 @@ alias vimzrc='vim ~/dotfiles/zshrc'
 alias vimz='vim ~/dotfiles/zshrc'
 alias py='python'
 alias py3='python3'
+alias eog="eog $@ 2>/dev/null"
