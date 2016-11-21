@@ -14,6 +14,20 @@ snippet docs "Header for info files" w!
 ${0}
 endsnippet
 
+snippet %% "Line separator" b
+% --------------------------------------------------------
+%  ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ 
+% --------------------------------------------------------
+${0}
+endsnippet
+
+snippet %- "Line separator" b
+% --------------------------------------------------------
+%                 ${1:TEXT} 
+% --------------------------------------------------------
+${0}
+endsnippet
+
 snippet foot "add \footnote{}" w!
 \footnote{${1:FOOTNOTE}} ${0}
 endsnippet
@@ -87,8 +101,20 @@ snippet cit "\cite{}" w!
 \cite{${1:BIBENTRY}}
 endsnippet
 
+snippet cite "\cite{}" w!
+\cite{${1:BIBENTRY}}
+endsnippet
+
 snippet _ "{A}_{B}" w!
 ${1:obj}_{${2:sub}}
+endsnippet
+
+snippet dn "{A}_{B}" w!
+${1:obj}_{${2:sub}}
+endsnippet
+
+snippet up "{A}^{B}" w!
+${1:base}^{${2:exp}}
 endsnippet
 
 snippet ^ "{A}^{B}" w!
@@ -96,7 +122,11 @@ ${1:base}^{${2:exp}}
 endsnippet
 
 snippet ** "{A}^{B}" w!
-${1:base}^{${2:exp}}
+{${1:base}}^{${2:exp}}
+endsnippet
+
+snippet exp "{A}^{B}" w!
+{${1:base}}^{${2:exp}}
 endsnippet
 
 snippet "\/" "\frac{}{}" w!
@@ -164,5 +194,13 @@ endsnippet
 
 snippet tendu "Tensor contravariant" w!
 {${1:Tensor}}_{${2:index}}^{${3:index}}
+endsnippet
+
+snippet du "Tensor contravariant" w!
+{${1:Tensor}}_{${2:index}}^{${3:index}}
+endsnippet
+
+snippet du "Tensor contravariant" w!
+{${1:Tensor}}^{${2:index}}_{${3:index}}
 endsnippet
 # ---------------------------------------

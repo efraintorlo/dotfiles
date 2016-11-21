@@ -12,6 +12,8 @@ let mapleader = ","
 let maplocalleader = ","
 " ====================
 
+" Ag-silver to subtitute ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Sudo Save
 command! -nargs=0 W w !sudo tee % > /dev/null
@@ -138,12 +140,15 @@ nnoremap <leader>i :set cursorline!<cr>
 
 set tw=80
 "====[ Make the 81st column stand out ]====================
-highlight ColorColumnNew ctermbg=red
-"highlight ColorColumnNew ctermbg=Blue ctermfg=red guibg=#592929
+"highlight ColorColumnNew ctermbg=white
+highlight ColorColumnNew ctermbg=white ctermfg=white guibg=#592929
 call matchadd('ColorColumn', '\%82v', 100)
-autocmd ColorScheme highlight ColorColumnNew ctermbg=red
-"autocmd ColorScheme * highlight ColorColumnNew ctermbg=11 ctermfg=white  guibg=#592929
+"autocmd ColorScheme highlight ColorColumnNew ctermbg=white
+autocmd ColorScheme * highlight ColorColumnNew ctermbg=11 ctermfg=white  guibg=#592929
 
+"let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn="80,".join(range(120,999),",")
+"highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 "set cursorline
 "highlight CursorLine ctermbg=LightBlue
@@ -769,7 +774,7 @@ autocmd BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md  setf markd
 " --- vim-pencil ---
 augroup pencil
     autocmd!
-    autocmd FileType markdown,mkd call pencil#init()
+    "autocmd FileType markdown,mkd call pencil#init()
     autocmd FileType text         call pencil#init()
     "autocmd FileType tex          call pencil#init()
 augroup END

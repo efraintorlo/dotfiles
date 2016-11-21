@@ -10,6 +10,7 @@
 function printbar {
     cols=$(tput cols)
     cols=$((cols / 6))
+    #cols=$(print -P $PS1 | wc -m)
     printf '⚛  ∴ %.0s' {1..$cols}
 }
 
