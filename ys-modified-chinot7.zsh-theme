@@ -108,7 +108,7 @@ ${odrive_info}\
 
 if [[ "$USER" == "root" ]]; then
 PROMPT="
-%{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
+%{$terminfo[bold]$fg[blue]%}☠ %{$reset_color%} \
 ${virtualenv_info}\
 %{$bg[yellow]%}%{$fg[cyan]%}%n%{$reset_color%} \
 %{$fg[white]%}at \

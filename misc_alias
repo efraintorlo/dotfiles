@@ -25,6 +25,7 @@ alias pip='pip2'
 # My common typos
 alias sl='ls'
 alias dc='cd'
+alias cdd='cd'
 alias lc='cl'
 
 

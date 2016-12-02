@@ -804,7 +804,8 @@ let g:pymode_rope=0
 let g:switch_mapping = "-"
 let g:switch_custom_definitions =
     \ [
-    \   ['YES', 'NO']
+    \   ['YES', 'NO'],
+    \   ['jpg', 'pdf', 'png', 'eps']
     \ ]
 
 " ligthline.vim
