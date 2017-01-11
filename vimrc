@@ -6,6 +6,10 @@ let g:email='efraazul@gmail.com'
 let g:snips_github='https://github.com/elchinot7'
 let g:github='https://github.com/elchinot7'
 
+" ~ . ~ . ~ . ~ . ~ . ~ . ~ .
+colorscheme slate
+" ~ . ~ . ~ . ~ . ~ . ~ . ~ .
+"
 " ====================
 "  Defining: <leader>
 let mapleader = ","
@@ -131,8 +135,6 @@ if exists('+relativenumber')
     set relativenumber
 endif
 
-colorscheme slate
-"highlight Pmenu guibg=brown gui=bold
 
 set cursorline
 " toggle cursor line
@@ -317,6 +319,10 @@ Plugin 'reedes/vim-colors-pencil'
 Plugin 'ervandew/supertab'
 Plugin 'keith/gist.vim'
 "Plugin 'klen/python-mode'
+"Plugin 'hdima/python-syntax'
+"Plugin 'purpleP/python-syntax'
+"Plugin 'kh3phr3n/python-syntax'
+Plugin 'elchinot7/python-syntax'
 Plugin 'AndrewRadev/switch.vim'
 "Plugin 'itchyny/lightline.vim'
 "Plugin 'Rykka/riv.vim'
@@ -835,3 +841,7 @@ if has("python")
 endif
 
 "highlight Pmenu guibg=brown gui=bold
+
+"  Python-Syntax
+"  ==============
+let python_highlight_all = 1

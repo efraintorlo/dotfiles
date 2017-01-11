@@ -44,3 +44,11 @@ function tmuxbarmusic {
         echo  "♫ $nowplaying" | cut -c 1-32
     fi
 }
+
+function notes {
+    if [[ -d ~/GitHub/tagspaces ]]; then
+         cd ~/GitHub/tagspaces/data 
+         electron . >> /dev/null &
+         cd
+    fi
+}

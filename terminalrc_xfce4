@@ -1,0 +1,40 @@
+# This file defines the style fro xfce4 terminal in Linux
+# This file can be reused by copying the next lines into:
+# ~/.config/xfce4/terminal/terminalrc
+
+[Configuration]
+FontName=Ubuntu Mono derivative Powerline 13
+MiscAlwaysShowTabs=FALSE
+MiscBell=FALSE
+MiscBordersDefault=TRUE
+MiscCursorBlinks=FALSE
+MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
+MiscDefaultGeometry=90x25
+MiscInheritGeometry=FALSE
+MiscMenubarDefault=TRUE
+MiscMouseAutohide=FALSE
+MiscToolbarDefault=FALSE
+MiscConfirmClose=TRUE
+MiscCycleTabs=TRUE
+MiscTabCloseButtons=TRUE
+MiscTabCloseMiddleClick=TRUE
+MiscTabPosition=GTK_POS_TOP
+MiscHighlightUrls=TRUE
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundDarkness=1.000000
+ColorForeground=#b585c39bc544
+ColorBackground=#002b36
+ColorCursor=#93a1a1
+ColorBold=#93a1a1
+ColorPalette=#070736364242;#cdcd00000000;#0000cdcd0000;#cccca8a81515;#1e1e9090ffff;#d3d336368282;#08086c6c9090;#e5e5e5e5e5e5;#00002b2b3636;#efef29292929;#0000ffff0000;#d0d0bbbb0f0f;#0f0f5e5edada;#6c6c7171c4c4;#0000cdcdcdcd;#ffffffffffff
+TabActivityColor=#dc322f
+DropdownOpacity=94
+DropdownPosition=94
+DropdownWidth=52
+DropdownHeight=46
+DropdownAlwaysShowTabs=FALSE
+DropdownAnimationTime=38
+ShortcutsNoMenukey=TRUE
+ColorBoldUseDefault=FALSE
+ShortcutsNoMnemonics=TRUE
+
