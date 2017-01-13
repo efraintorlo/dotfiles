@@ -1,0 +1,63 @@
+snippet docs "Header for Markdown document" b!
+# ${1:Title}
+
+---
+
+Author:  ${2:`! echo $USER`}
+
+Date:    ${3:`!v strftime("%Y-%m-%d")`}
+
+Version: ${4:0.1}
+
+Tags:    ${5:Some Tags}
+
+---
+${0}
+endsnippet
+
+snippet twocol "HTML Bootstrap two column" b
+<div class="row">
+
+    <div class='col-md-5 col-md-offset-1'>
+       ${1:<p>COLUMN1</p>}
+    </div>
+
+    <div class='col-md-5 col-md-offset-1'>
+       ${2:<p>COLUMN2</p>}
+    </div>
+
+</div>
+${0}
+endsnippet
+
+snippet cols "HTML Bootstrap two column" b
+<div class="row">
+
+    <div class='col-md-5 col-md-offset-1'>
+       ${1:<p>COLUMN1</p>}
+    </div>
+
+    <div class='col-md-5 col-md-offset-1'>
+       ${2:<p>COLUMN2</p>}
+    </div>
+
+</div>
+${0}
+endsnippet
+
+snippet code "HTML prettify code" b
+<pre><code class='prettyprint ${1:Python} '>
+    ${2:CODE}
+</code></pre>
+${0}
+endsnippet
+
+snippet img "HTML image" b
+<img src="${1:path/image.png}" alt="${2:HTML5-IMAGE}" style="width:${3:700px};height:${4:400px};">
+${0}
+endsnippet
+
+snippet br "HTML Change of line" b
+</br>
+${0}
+endsnippet

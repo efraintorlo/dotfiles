@@ -1,0 +1,11 @@
+snippet docs "Header for rst document" b!
+###############
+${1:Title}
+###############
+:Author:   ${2:`! echo $USER`}
+:Date:   ${3:`!v strftime("%Y-%m-%d")`}
+:Version: ${4:0.1}
+:Tags: ${5: Some Tags}
+endsnippet
+
+

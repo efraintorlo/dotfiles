@@ -1,0 +1,118 @@
+snippet docs "Makefile Info" b!
+SHELL := /bin/bash
+#-----------------------------------------------
+#    __  __       _         __ _ _
+#   |  \/  | __ _| | _____ / _(_) | ___
+#   | |\/| |/ _  | |/ / _ \ |_| | |/ _ \
+#   | |  | | (_| |   <  __/  _| | |  __/
+#   |_|  |_|\__,_|_|\_\___|_| |_|_|\___|
+#
+#-----------------------------------------------
+#         Makefile for ${1:PROJECT}
+#-----------------------------------------------
+#	Author:      ${2:`!v g:snips_author`}
+#	Email:       ${3:`!v g:snips_email`}
+#	Github:      ${4:`!v g:snips_github`}
+#	Description: ${5:INFO}
+#-----------------------------------------------
+
+${0}
+endsnippet
+
+snippet fortran "Auto-Find the Fortran compiler" b
+
+# -----------------------------------------------
+# Find the Fortran compiler 
+# -----------------------------------------------
+ifeq ($(shell which ifort | sed -n "s/.*\/ifort/ifort/p"),ifort)
+FC := ifort
+else
+ifeq ($(shell which gfortran | sed -n "s/.*\/gfortran/gfortran/p"),gfortran)
+FC := gfortran
+else
+# No Fortran compiler found.
+$(error $(newline)Makefile error: No FORTRAN compiler found)
+endif
+endif
+
+${0}
+
+endsnippet
+
+
+snippet apps "Define Apps for Mac/Linux" b
+
+#  --------------------------------------
+#  Apps needed are different for Linux/Mac
+#  --------------------------------------
+ifeq ($(shell uname -s),Darwin)
+    OPEN = open
+	${1:APP} = ${2:command}
+else
+    OPEN = xdg-open
+	$1 = $2
+endif
+#  --------------------------------------
+
+endsnippet
+
+
+
+snippet color "Define Terminal Color" b
+
+# -----------------------------
+# Some styles and colors to be
+# used in Terminal outputs
+# -----------------------------
+REDC = \033[31m
+BOLD = \033[1m
+GREENC = \033[32m
+UNDERLINE = \033[4m
+ENDC = \033[0m
+# -----------------------------
+endsnippet
+
+snippet info "Show System Info" b
+
+# ------  SYSTEM INFO ------
+HOST := $(shell hostname -s)
+ARCH := $(shell uname)
+COMPILER := ?
+
+# -----------------    SHOW SYSTEM INFO      --------------
+hello:
+	@ echo
+	@ echo
+	@ echo "---------------------------------------------"
+	@ echo "               SYSTEM INFO  "
+	@ echo "---------------------------------------------"
+	@ echo
+	@ echo -e "HOST: ${REDC} $(HOST) ${ENDC}"
+	@ echo -e "ARCH: ${REDC} $(ARCH) ${ENDC}"
+	@ echo -e "PWD : ${REDC} $(PWD) ${ENDC}"
+	@ echo
+	@ echo -e "COMPILER = ${REDC} $(COMPILER) ${ENDC}"
+	@ echo
+	@ echo "---------------------------------------------"
+	@ echo
+	@ echo
+# ---------------------------------------------------------
+endsnippet
+
+snippet help "Help Menu" b
+# --------------------------------------------------------------
+help:
+	@echo "------------------------------------------------------"
+	@echo -e "                    $(UNDERLINE)$(REDC) < ${1:PROJECT} >$(ENDC)"
+	@echo -e "                   $(GREENC) Makefile Menu$(ENDC)"
+	@echo "------------------------------------------------------"
+	@echo "Please use 'make <target>' where target is one of:"
+	@echo
+	@echo -e "$(REDC)default$(ENDC)    > ${2:Default Action}"
+	@echo
+	@echo -e "               '$(GREENC)${3:COMMAND}$(ENDC)'"
+	@echo
+	@echo -e "$(REDC)clean$(ENDC)      > to clean ${4:STUFF}. "
+	@echo "------------------------------------------------------"
+# --------------------------------------------------------------
+endsnippet
