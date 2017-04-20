@@ -22,7 +22,7 @@ endsnippet
 snippet fortran "Auto-Find the Fortran compiler" b
 
 # -----------------------------------------------
-# Find the Fortran compiler 
+# Find the Fortran compiler
 # -----------------------------------------------
 ifeq ($(shell which ifort | sed -n "s/.*\/ifort/ifort/p"),ifort)
 FC := ifort
@@ -39,6 +39,25 @@ ${0}
 
 endsnippet
 
+snippet gcc "Auto-Find the clang compiler" b
+
+# -----------------------------------------------
+# Find the CC compiler
+# -----------------------------------------------
+ifeq ($(shell which icc | sed -n "s/.*\/icc/icc/p"),icc)
+CC := icc
+else
+ifeq ($(shell which gcc | sed -n "s/.*\/gcc/gcc/p"),gcc)
+CC := gcc
+else
+# No CC compiler found.
+$(error $(newline)Makefile error: No CC compiler found)
+endif
+endif
+
+${0}
+
+endsnippet
 
 snippet apps "Define Apps for Mac/Linux" b
 
@@ -87,11 +106,11 @@ hello:
 	@ echo "               SYSTEM INFO  "
 	@ echo "---------------------------------------------"
 	@ echo
-	@ echo -e "HOST: ${REDC} $(HOST) ${ENDC}"
-	@ echo -e "ARCH: ${REDC} $(ARCH) ${ENDC}"
-	@ echo -e "PWD : ${REDC} $(PWD) ${ENDC}"
+	@ echo -e "HOST: $(BOLD) ${REDC} $(HOST) ${ENDC}"
+	@ echo -e "ARCH: $(BOLD) ${REDC} $(ARCH) ${ENDC}"
+	@ echo -e "PWD : $(BOLD) ${REDC} $(PWD) ${ENDC}"
 	@ echo
-	@ echo -e "COMPILER = ${REDC} $(COMPILER) ${ENDC}"
+	@ echo -e "COMPILER = $(BOLD) ${REDC} $(COMPILER) ${ENDC}"
 	@ echo
 	@ echo "---------------------------------------------"
 	@ echo
@@ -108,11 +127,11 @@ help:
 	@echo "------------------------------------------------------"
 	@echo "Please use 'make <target>' where target is one of:"
 	@echo
-	@echo -e "$(REDC)default$(ENDC)    > ${2:Default Action}"
+	@echo -e "$$(BOLD)(REDC)default$(ENDC)    > ${2:Default Action}"
 	@echo
 	@echo -e "               '$(GREENC)${3:COMMAND}$(ENDC)'"
 	@echo
-	@echo -e "$(REDC)clean$(ENDC)      > to clean ${4:STUFF}. "
+	@echo -e "$(BOLD)$(REDC)clean$(ENDC)      > to clean ${4:STUFF}. "
 	@echo "------------------------------------------------------"
 # --------------------------------------------------------------
 endsnippet

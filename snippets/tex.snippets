@@ -6,25 +6,49 @@
 snippet docs "Header for info files" w!
 % ------------------------------------------------------
 %	File:        ${1:`!v vim_snippets#Filename('$1', '.info')`}
-%	Author:      ${2:`!v g:snips_author`} ${3:𝑒𝑙𝑐𝒉𝑖𝑛𝑜𝑡𝟕}
-%	Email:       ${4:`!v g:snips_email`}
-%	Github:      ${5:`!v g:snips_github`}
+%	Author:      ${2:`!v g:snips_author`}
+%	Email:       ${3:`!v g:snips_email`}
+%	Github:      ${4:`!v g:snips_github`}
+%   Created:     ${5:`date +%d-%m-%Y`}
 %	Description: ${6:INFO}
 % ------------------------------------------------------
+
 ${0}
 endsnippet
 
 snippet %% "Line separator" b
 % --------------------------------------------------------
-%  ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ 
+%  ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴ ⚛  ∴
 % --------------------------------------------------------
 ${0}
 endsnippet
 
 snippet %- "Line separator" b
 % --------------------------------------------------------
-%                 ${1:TEXT} 
+%                 ${1:TEXT}
 % --------------------------------------------------------
+${0}
+endsnippet
+
+snippet fig "Add Table" w!
+\begin{figure}[${1:tbh}]
+    \centering
+    \includegraphics[width=${2:0.8}\linewidth]{${3:name.ext}}
+    \caption{${4:caption}}
+    \label{fig:${5:label}}
+\end{figure}
+${0}
+endsnippet
+
+snippet table "Add Table" w!
+\begin{table}[${1:tbh}]
+    \centering
+    \begin{tabular}{${2:c}}
+	${3:TableContent}
+    \end{tabular}
+    \caption{${4:caption}}
+    \label{tab:${5:label}}
+\end{table}
 ${0}
 endsnippet
 

@@ -16,6 +16,10 @@ let mapleader = ","
 let maplocalleader = ","
 " ====================
 
+"let g:tex_flavor = "latex"
+"let g:tex_flavor = "tex"
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+
 " Ag-silver to subtitute ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
@@ -88,7 +92,8 @@ au InsertLeave * let &updatetime=updaterestore
 "inoremap { ´
 "===================
 "Beep is annoying
-set visualbell
+"set visualbell
+set noeb vb t_vb=
 
 "Habit breaking, habit making
 "this disables the arrowkeys
@@ -117,7 +122,8 @@ map gd :bd<cr>
 "noremap <S-CR> :make | copen
 "nmap <c-r> :make | copen
 "noremap <F2> :make | copen
-map rr :make <bar> copen<CR>
+"map rr :make <bar> copen<CR>
+map rr :make <CR> <CR>
 
 
 "setlocal spell
@@ -202,8 +208,13 @@ map <leader>et :e! ~/dotfiles/tmux.config<cr>
 "map <leader>ez :e! ~/.zshrc<cr>
 map <leader>ez :e! ~/dotfiles/zshrc<cr>
 
+" Python Mappings
+" Fix print_function Python2 vs Python3
+function! FixPythonPrint()
+    %s/^\(\s*print\)\s\+\(.*\)/\1(\2)
+endfunction
 
-
+nnoremap <Leader>fpp :call FixPythonPrint()<CR>
 "--------------------------------------------------
 "Trailing Whitespace
 "---------------------------------------------------
@@ -246,7 +257,11 @@ nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
  set mouse=a
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
- set ttymouse=xterm2
+
+"set ttymouse=xterm2
+f !has('nvim')
+  set ttymouse=xterm2
+Endif
 
 "--------------------------------------------------------
 set nocompatible              " be iMproved, required
@@ -274,6 +289,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'altercation/vim-colors-solarized'
 Plugin 'mileszs/ack.vim'
 Plugin 'matchit.zip'
+Plugin 'ron89/thesaurus_query.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'easymotion/vim-easymotion'
@@ -335,7 +351,6 @@ Plugin 'honza/vim-snippets'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chrisbra/Colorizer'
 Plugin 'vim-scripts/AfterColors.vim'
-
 "Plugin 'rbonvall/snipmate-snippets-fortran95'
 "
 " All of your Plugins must be added before the following line
@@ -406,10 +421,11 @@ let g:syntastic_python_flake8_args='--ignore=F403,E501,E226,E702'
 "LATEX
 
 "------latex --------
-"let g:syntastic_tex_checkers = ['chktex']
-"let g:syntastic_tex_ckktex_args='--ignore=W35,W6,W8'
-"let g:syntastic_tex_ckktex_args='-n35'
-let g:syntastic_tex_checkers = ['']
+let g:syntastic_tex_checkers = ['chktex']
+"let g:syntastic_tex_chktex_args='--ignore=W35,W6,W8'
+let g:syntastic_tex_chktex_args='--ignore=W11,W6'
+"let g:syntastic_tex_chktex_args='-n35'
+"let g:syntastic_tex_checkers = ['']
 let g:LatexBox_quickfix = 3
 let g:LatexBox_show_warnings = 0
 "let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
@@ -731,7 +747,9 @@ let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_math=0
 let g:vim_markdown_frontmatter=0
 
-
+" PANDOC SYNTAX
+let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#syntax#conceal#blacklist = ["codeblock_start", "codeblock_delim"]
 
 "---- promptline -----
 "https://github.com/edkolev/promptline.vim
@@ -845,3 +863,10 @@ endif
 "  Python-Syntax
 "  ==============
 let python_highlight_all = 1
+
+
+"  Thesaurus
+"  ----------
+nnoremap <Leader>sy :ThesaurusQueryReplaceCurrentWord<CR>
+
+let g:tex_flavor = "tex"

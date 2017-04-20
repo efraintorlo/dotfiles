@@ -32,6 +32,23 @@ function chpwd {
     fi
 }
 
+
+# Copy FULL path of file into xclip
+
+function copypath {
+    if [[ -e $1 ]]; then
+        readlink -f $1 | xclip
+    else
+        echo $1 " DOES NOT EXIST!"
+    fi
+}
+
+
+function pastepath {
+    xclip -o
+}
+
+# Now my tmuxline_preset used ./now_playing.sh
 function tmuxbarmusic {
 
     nowplaying=$(rhythmbox-client --no-start --print-playing)
@@ -44,6 +61,7 @@ function tmuxbarmusic {
         echo  "♫ $nowplaying" | cut -c 1-32
     fi
 }
+
 
 function notes {
     if [[ -d ~/GitHub/tagspaces ]]; then

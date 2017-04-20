@@ -31,4 +31,6 @@ alias dc='cd'
 alias cdd='cd'
 alias lc='cl'
 
-
+# Copy & Paste
+alias c='copypath'
+alias v='pastepath'
