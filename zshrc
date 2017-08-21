@@ -74,17 +74,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cl="clear"
-alias lt="ls -t"
-alias tree="tree -C"
-#alias ssh=~/dotfiles/ssh-host-color.sh
-# alias pbcopy="xclip -selection clipboard"
-alias pbpaste="xclip -selection clipboard -o"
-# alias cdg="cd $(git rev-parse --show-toplevel)"
-alias ipy="ipython"
-alias ipython="ipython notebook"
-
-alias makels="make -rpn | sed -n -e '/^$/ { n ; /^[^ .#][^ ]*:/p ; }' | egrep --color '^[^ ]*:'"
 
 #bindkey "^[[1;6D" insert-cycledleft
 #bindkey "^[[1;6C" insert-cycledright
