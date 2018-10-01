@@ -1,26 +1,13 @@
 # vi:syntax=sh
-export MYHOME=/home/chinot7
+export MYHOME=/home/elchinot7
 
 # MISCELLANEOUS
-[[ -f $MYHOME/dotfiles/misc_alias ]] && source $MYHOME/dotfiles/misc_alias
+[[ -f $MYHOME/.dotfiles/misc_alias ]] && source $MYHOME/.dotfiles/misc_alias
 
 # MUSIC
-[[ -f $MYHOME/dotfiles/music_alias ]] && source $MYHOME/dotfiles/music_alias
+[[ -f $MYHOME/.dotfiles/music_alias ]] && source $MYHOME/.dotfiles/music_alias
 
 # GIT
-[[ -f $MYHOME/dotfiles/git_alias ]] && source $MYHOME/dotfiles/git_alias
+[[ -f $MYHOME/.dotfiles/git_alias ]] && source $MYHOME/.dotfiles/git_alias
 
-
-# LOCAL PROGRAMS
-alias sage="~/Programs/SageMath/sage"
-alias visit='cd /home/chinot7/Programs/visit/visit2_10_2.linux-x86_64/bin && ./visit'
-
-# INTEL
-# Python Intel
-#alias conda='source ~/.myintel/pythonvars.sh && source activate'
-alias condaemcee='source ~/.myintel/pythonvars.sh && source activate condaemcee'
-alias condaml='source ~/.myintel/pythonvars.sh && source activate condaML'
-
-# Franz messenger
-alias franz='Franz > /dev/null &'
 

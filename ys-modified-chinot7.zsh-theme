@@ -93,7 +93,7 @@ ys_prompt_odrive() {
 #
 # Prompt format: \n # (virtualenv) USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $ 
 PROMPT="
-%{$terminfo[bold]$fg[yellow]%}☢ %{$reset_color%} \
+%{$terminfo[bold]$fg[yellow]%}🦖 %{$reset_color%} \
 ${virtualenv_info}\
 %{$fg[yellow]%}%n \
 %{$fg[white]%}at \
@@ -102,13 +102,12 @@ ${virtualenv_info}\
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
-${odrive_info}\
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}  > %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
 PROMPT="
-%{$terminfo[bold]$fg[yellow]%}☠ %{$reset_color%} \
+%{$terminfo[bold]$fg[yellow]%}☠️ %{$reset_color%} \
 ${virtualenv_info}\
 %{$bg[yellow]%}%{$fg[cyan]%}%n%{$reset_color%} \
 %{$fg[white]%}at \

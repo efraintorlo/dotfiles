@@ -30,6 +30,7 @@
 [alias]
     a = add --all
     c = commit
+    co = checkout
     ps = push
     pso = push origin
     psom = push origin master

@@ -259,9 +259,9 @@ nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 
 "set ttymouse=xterm2
-f !has('nvim')
+if !has('nvim')
   set ttymouse=xterm2
-Endif
+endif
 
 "--------------------------------------------------------
 set nocompatible              " be iMproved, required

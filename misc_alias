@@ -2,7 +2,7 @@
 alias cl="clear"
 alias lt="ls -t"
 alias tree="tree -C"
-#alias ssh=~/dotfiles/ssh-host-color.sh
+# alias ssh=~/dotfiles/ssh-host-color.sh
 # alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
 # alias cdg="cd $(git rev-parse --show-toplevel)"
@@ -16,7 +16,7 @@ alias aliasedit='vim ~/dotfiles/*_alias'
 alias vimalias='vim ~/dotfiles/*_alias'
 alias ":q"="exit"
 alias ":e"="vim"
-alias vim="vim --servername testserver"
+# alias vim="vim --servername testserver"
 alias tmux="tmux -2"
 alias open="xdg-open $@ 2>/dev/null"
 alias openall="ls -b $@ | xargs -n 1 xdg-open 2>/dev/null"
