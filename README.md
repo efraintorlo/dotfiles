@@ -7,15 +7,17 @@ To clone this file use:
 ~~~sh
 cd ~
 sudo apt install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-git clone https://github.com/elchinot7/dotfiles.git .dotfiles
-cp .dotfiles/.zshrc .
-cp .dotfiles/.vimrc .
-cp .dotfiles/.tmux.conf .
-cp .dotfiles/ys-modified-chinot7.zsh-theme .oh-my-zsh/custom/themes/
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && \
+git clone https://github.com/elchinot7/dotfiles.git .dotfiles && \
+cp .dotfiles/.zshrc . && \
+cp .dotfiles/.vimrc . && \
+cp .dotfiles/.tmux.conf . && \
+cp .dotfiles/ys-modified-chinot7.zsh-theme .oh-my-zsh/custom/themes/ && \
 cp .dotfiles/gitconfig .gitconfig
+cp .dotfiles/.aliases.local .
+
 ~~~
 
 To install `vim` plugins:
