@@ -680,7 +680,7 @@ let g:tmuxline_theme = {
       \'c'    : ['#(whoami)'],
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : ['#(~/dotfiles/now_playing.sh)','#{prefix_highlight}#{battery_icon}#{battery_percentage}'],
+      \'x'    : ['#(~/.dotfiles/now_playing.sh)','#{prefix_highlight}#{battery_icon}#{battery_percentage}'],
       \'y'    : ['%R', '%a', '%d-%h-%Y'],
       \'z'    : '#h'}
 ""      \'x'    : ['#(~/.local/bin/streema.py)#(~/.local/bin/stupify.py)#(rhythmbox-client --no-start --print-playing)','#{prefix_highlight}#{battery_icon}#{battery_percentage}'],
